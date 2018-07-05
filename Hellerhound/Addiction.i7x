@@ -18,7 +18,7 @@ addictname is a text that varies.
 foundaitem is a number that varies.
 
 
-before using a grab object (called X):
+before using a grab object (called x):
 	if X is addictive and X is owned:
 		now foundaitem is 0;
 		repeat with Z running from 1 to the number of rows in the Table of Addictive Items:
@@ -44,7 +44,7 @@ an everyturn rule:
 			say "Your head begins to hurt, and you have a powerful urge to get some more [addictname].";
 		else if addictlefttime < 2:
 			say "You NEED MORE [addictname]!";
-			decrease the hp of the player by 5;
+			decrease the HP of the player by 5;
 			increase withdrawel by 1;
 		if withdrawel > 0:
 			if withdrawel < 1:
@@ -55,13 +55,13 @@ an everyturn rule:
 				now withdrawel is 0;
 				now addicted is 0;
 				increase the strength of the player by 7;
-				increase the dexterity of the player by 5;[leaves you worse off]
+				increase the dexterity of the player by 5; [leaves you worse off]
 				say "You have recovered from the drug.";
 
 
 Section 2 - Test Drug
 
-Table of Game Objects(continued)
+Table of Game Objects (continued)
 name	desc	weight	object
 "blood pill"	"A pill you got from some strange street."	1	blood pill
 

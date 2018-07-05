@@ -1,8 +1,9 @@
 Warehouse District by Kaleem mcintyre begins here.
 
-Section 1 -- Warehouse District
+Section 1 - Warehouse District
 
 Warehouse District is a room. It is a fasttravel.
+The earea of Warehouse District is "Warehouse".
 
 The description of Warehouse District is "Speckled with mostly unused buildings and tied down boats, both luxury and commercial, this area of the city stands almost barren as the waves from off of the shoreline lap at the dock area. [if findwires is 2 and fixedgens is 2]Most of the buildings are lit with life at the moment since the power to the city was restored and from what can be seen inside of the many windows there are [']people['], or rather the leftover reminiscence of what used to be people, walking around and going about their day. Most of them seem to be blue collar workers trying to make some kind of use with their time, but others are fucking or being fucked from what can been seen through the large windows and half open garage doors[else]Many of the warehouses are dark at the moment and most of them seem almost creepy without any signs of life within them. A few shadows play across the windows of some of the larger edifices seeming to almost tease at the suggestion of life going on inside[end if]. Several dozen cars and trucks have been turned over and carry stains of both cum, piss while other such sludge drip restlessly off from the sides of both buildings and care hoods alike. A pervasive sense of danger seems to echo from around every corner, though not everything here is so bleak and gloomy as the waves rolling across the sea seem to tease at something worthwhile even in the midst of all the despondence going on around here.".
 
@@ -28,14 +29,14 @@ North of Packaging Warehouse is Northern Docks.
 The description of Northern Docks is "The northern side of the docks sit quietly as various mutants take the time to fish off the side of the pier while others move about in an effort to go about their business. Mostly otters have taken up residency here, but a few sharks and killer whales dot the landscape as the water based mutates do their best to stave off boredom. Few are fucking at the moment, but the energy that permeates around this side of the warehouse district seems to speak of pent up lusts just ready to boil over. A few males and more than several herms wink at you as you pass. From the way bulges are being rubbed it's easy to see that you might be the key to turning this place into a nesting ground of debauchery. With the [if findwires is 2 and fixedgens is 2 and daytimer is night]sun having set the dock area is alive with the grunts and rocking motions of both males, females, and those in between, all reveling in hot and steamy carnal bliss with each other. Several eyes look towards you with [']come hither['] glances and you have to bit at your lower lip to keep from charging over into one of the growing masses of bodies becoming soaked in both cum and sweat[else]dock not having any power at the moment the northern area is much more quiet, but that's just because those mutates who can and choose to do so have taken their leave of things to go out to sea to mess around. From the way the dark waters are splashing around and making large waves there's a serious party going on under the sea[end if].".
 
 Instead of sniffing Northern Docks:
-	Say "The north end docks smell like fish and otters and cum and musk and too much sex to pass any kind of inspection code.";
+	say "The north end docks smell like fish and otters and cum and musk and too much sex to pass any kind of inspection code.";
 
 South of Warehouse District is Gloomy Warehouse.
 
 The description of Gloomy Warehouse is "Standing off by its lonesome a sad looking warehouse seems to call out mournfully to anyone passing through the area. And though you're not exactly sure why, just looking at the place causes a sudden feeling of [']depression['] to creep over your soul like a quiet curse. It's odd though, considering the massive change in the city, that this one building seems to have been kept well enough alone that there are neither stains of cum nor piss nor milk anywhere alongside the gray ashen walls of the towering edifice. Just what sort of place is this strange building?".
 
 Instead of sniffing Gloomy Warehouse:
-	Say "The glum looking warehouse smells of sorrows left forgotten and strangely enough...dogs?";
+	say "The glum looking warehouse smells of sorrows left forgotten and strangely enough...dogs?";
 
 
 South of Gloomy Warehouses is S Harbor.

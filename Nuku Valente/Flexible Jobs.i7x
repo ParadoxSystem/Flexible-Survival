@@ -25,7 +25,7 @@ This is the farmvailable rule:
 		rule succeeds;
 	rule fails;
 
-An everyturn rule(this is the Farming rule):
+An everyturn rule (this is the Farming rule):
 	if workers of farmer is 0, continue the action;
 	let foragers be workers of farmer;
 	[First check for easy to grab salvage, will become more scarce over time]
@@ -33,14 +33,14 @@ An everyturn rule(this is the Farming rule):
 	if farming is complete:
 		let z be level of farming;
 		if "Farming" is listed in perks of tribe of player, increase z by 1;
-		if z is less than 1, now z is 1;
+		if z < 1, now z is 1;
 		increase x by 10 * z;
 	if "Plant" is listed in diet of tribe of player:
 		increase x by 10;
 	now x is x * foragers;
 	now x is x / 100;
-	if x is greater than 0: [ There is forage available ]
-		if x is less than 1, now x is 1;
+	if x > 0: [ There is forage available ]
+		if x < 1, now x is 1;
 		say "Farming yields food: +[x]";
 		if "Plant" is listed in diet of tribe of player:
 			increase food of tribe of player by x;
@@ -65,7 +65,7 @@ This is the huntvailable rule:
 	if "Hunting" is listed in perks of tribe of player, rule succeeds;
 	rule fails;
 
-An everyturn rule(this is the Hunting rule):
+An everyturn rule (this is the Hunting rule):
 	if workers of hunter is 0, continue the action;
 	let foragers be workers of hunter;
 	[First check for easy to grab salvage, will become more scarce over time]
@@ -73,14 +73,14 @@ An everyturn rule(this is the Hunting rule):
 	if hunting is complete:
 		let z be level of hunting;
 		if "Hunting" is listed in perks of tribe of player, increase z by 1;
-		if z is less than 1, now z is 1;
+		if z < 1, now z is 1;
 		increase x by 10 * z;
 	if "Meat" is listed in diet of tribe of player:
 		increase x by 10;
 	now x is x * foragers;
 	now x is x / 100;
-	if x is greater than 0: [ There is forage available ]
-		if x is less than 1, now x is 1;
+	if x > 0: [ There is forage available ]
+		if x < 1, now x is 1;
 		say "Hunting yields food: +[x]";
 		if "Meat" is listed in diet of tribe of player:
 			increase food of tribe of player by x;
@@ -97,11 +97,11 @@ This is the maxwarrior rule:
 This is the warvailable rule:
 	rule succeeds;
 
-An everyturn rule(this is the Warrior Payday rule):
+An everyturn rule (this is the Warrior Payday rule):
 	if workers of warrior is 0, continue the action;
 	let foragers be workers of warrior;
 	decrease foragers by 5;
-	if foragers is less than 0, continue the action;
+	if foragers < 0, continue the action;
 	[First check for easy to grab salvage, will become more scarce over time]
 	let x be 100;
 	if "Militant" is listed in perks of tribe of player:
@@ -110,12 +110,12 @@ An everyturn rule(this is the Warrior Payday rule):
 		decrease x by 10;
 	now x is x * foragers;
 	now x is x / 100;
-	if x is greater than 0: [ The warriors demand monies ]
-		if x is less than 1, now x is 1;
+	if x > 0: [ The warriors demand monies ]
+		if x < 1, now x is 1;
 		if creds of tribe of player < x:
 			decrease x by creds of tribe of player;
 			now creds of tribe of player is 0;
-			if x is less than 2, now x is 2;
+			if x < 2, now x is 2;
 			decrease morale of tribe of player by ( x / 2 );
 			say "You lack the funds to properly pay for warriors. Morale: -[x / 2]";
 		else:
@@ -133,7 +133,7 @@ This is the settlervailable rule:
 	if openland > 0, rule succeeds;
 	rule fails;
 
-An everyturn rule(This is the Brave Settler rule):
+An everyturn rule (This is the Brave Settler rule):
 	if openland < 1, now workers of settler is 0;
 	let foragers be workers of settler;
 	if foragers is 0, continue the action;

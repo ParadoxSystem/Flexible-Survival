@@ -1,4 +1,4 @@
-Mall events by Sarokcat begins here.
+Mall Events by Sarokcat begins here.
 
 "Adds a series of random events to Flexible Survival located in the mall area."
 
@@ -10,16 +10,16 @@ The sarea of Tight space is "Mall".
 
 Instead of resolving Tight space:
 	say "You come across a very narrow opening in the sewers underneath the city, you think you see something gleaming in the back of it, but it would be a really tight squeeze to fit in there, and might leave you vulnerable to attack. Do you try to enter the tight space anyways?";
-	If player consents:
+	if player consents:
 		let T be a random number between one and five;
 		if T is 1:
 			say "It looks like the glint was just some leftover iridescent paint someone smeared here.";
 		else if T is 2:
-			say "You find a unopened bottle of water that must have rolled in here!";
+			say "You find an unopened bottle of water that must have rolled in here!";
 			increase carried of water bottle by 1;
 		else if T is 3:
 			say "You get stuck in the tight space. Panicking, you struggle and fight to get out, eventually managing to tear your way free, leaving a good portion of skin behind though... damn that hurts!";
-			decrease hp of player by 20;
+			decrease HP of player by 20;
 		else if T is 4:
 			say "It looks like some kid made a little nest down here, you find some comic books and a few other shiny items, but most importantly you find some chips and soda to snack on!";
 			increase carried of chips by 1;
@@ -99,7 +99,7 @@ Instead of resolving a puddle of goo:
 		let diceroll be a random number from 1 to 20;
 		say "You roll 1d20([diceroll])+[bonus]: [diceroll + bonus], ";
 		increase diceroll by bonus;
-		if diceroll is greater than 14:
+		if diceroll > 14:
 			say "You manage to gather up some of the strange goo without incident!";
 			increase carried of glob of goo by 2;
 		else:
@@ -135,7 +135,7 @@ Instead of resolving a Goo Gathering:
 	let diceroll be a random number from 1 to 20;
 	say "You roll 1d20([diceroll])+[bonus]: [diceroll + bonus], ";
 	increase diceroll by bonus;
-	if diceroll is greater than 14:
+	if diceroll > 14:
 		say "Your nimble feet navigate the passage without any problems, allowing you to slip away from the potentially dangerous situation unharmed.";
 	else:
 		say "You try to slip away down the passage, only to scuff your feet and trip on the rough surface, you catch yourself almost immediately, but it appears several of the gooey beasts heard the noise and are coming to investigate!";
@@ -159,8 +159,8 @@ Instead of resolving a Old rail system:
 		say "Unfortunately, the noise seems to have alerted something to your location!";
 		fight;
 		say "Recovering from the unexpected encounter, you continue through the now open door.";
-	Say "Inside the door you find a large mostly sealed off area, the remains of what appears to be an old rail station, with part of a old rail truck still sitting there on the turning section. You look around in amazement at this abandoned bit of history, and at a few of the still open rail tunnels, the partially rusted rails leading farther off into the darkness. Sadly the place is so old you don't think you will find much of use here for your current situation, but it could be fun to return and explore further sometime.";
+	say "Inside the door you find a large mostly sealed off area, the remains of what appears to be an old rail station, with part of an old rail truck still sitting there on the turning section. You look around in amazement at this abandoned bit of history, and at a few of the still open rail tunnels, the partially rusted rails leading farther off into the darkness. Sadly the place is so old you don't think you will find much of use here for your current situation, but it could be fun to return and explore further sometime.";
 	Now Old rail system is resolved;
 
 
-Mall events ends here.
+Mall Events ends here.

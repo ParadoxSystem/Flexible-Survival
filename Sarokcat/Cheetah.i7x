@@ -12,7 +12,7 @@ when play begins:
 
 
 to say CheetahWomanWins:
-	if cocks of player is greater than 0:
+	if player is male:
 		say "A happy grin stretches across the cheetah woman's muzzle as you stumble, off balance due to her swift movements. She pounces before you can recover your balance, knocking you to the ground beneath her. 'That was a good workout,' she murmurs in a low voice as she rubs the side of her muzzle slowly along your face, her whiskers tickling you as her soft fur trails along your [skin of player] skin. 'But working out always leaves me so... hot,' she moans, one of her hands caressing your side, while her other hand slowly trails down her body, emphasizing her lithe form and her pert breasts, before she runs it over her soft mound seductively. You find yourself growing hard underneath her teasing, as the scent of a cheetah in heat washes over you, its effect only intensified by her recent exertion. 'Mmmm,' she moans above you as her hand moves from her wet mound to rub over your erect cock, the feel of her juice on your cock as she strokes it with her soft paw nearly making you erupt right then and there. 'So hot, need it so bad,' the cheetah moans, as she slowly lowers herself onto you, making you gasp in pleasure at the feel of her tight passage slipping itself around your cock.";
 		say "The cheetah moans in obvious relief at the feel of your cock sliding inside her, lowering herself onto you until you are fully hilted inside her. Moaning, she wiggles her hips slightly, causing you to gasp in pleasure. Then she lowers herself down onto you, her pert breasts rubbing up against your chest as her soft short fur slides over your body, her muzzle coming up to capture your mouth in a deep kiss, silencing any potential protest you might make. Her tongue darts into your mouth, teasing and rubbing along your own as her muzzle stays locked on your mouth, and her body begins to rock up against you, moving up and down slightly on your cock as she uses you for her pleasure.[line break]";
 		say "Starting out slow and sensual, she soon builds up speed as she moves her body on top of yours. The sensations of her tight wet cunt gripping your cock as she moves are almost indescribable, and her needy musky scent fills your body as she rubs herself all over you. Soon you can't help but thrust upwards into her on your own, your body an eager participant in the procedure, her muzzle still locked to yours as she groans and writhes on top of you. She finally breaks the bestial kiss with a loud moan as you both draw closer and closer to your peak. Orgasming together, your world explodes in pleasure as she lets out a loud yowl, before resting her head on your shoulder for a minute, her body shuddering on top of yours in reaction to the amazing orgasm you both share.[line break]";
@@ -38,26 +38,26 @@ to say CheetahWomanDesc:
 Section 2 - Monster Insertion
 
 Table of random critters (continued)
-name	attack	defeated	victory	desc	face	body	skin	tail	cock	face change	body change	skin change	ass change	cock change	str	dex	sta	per	int	cha	sex	hp	lev	wdam	area	cocks	cock length	cock width	breasts	breast size	male breast size	cunts	cunt length	cunt width	libido	loot	lootchance	scale (number)	body descriptor (text)	type (text)	magic (truth state)	resbypass (truth state)	non-infectious (truth state)	nocturnal (truth state)	altcombat (text)
+name	attack	defeated	victory	desc	face	body	skin	tail	cock	face change	body change	skin change	ass change	cock change	str	dex	sta	per	int	cha	sex	HP	lev	wdam	area	cocks	cock length	cock width	breasts	breast size	male breast size	cunts	cunt length	cunt width	libido	loot	lootchance	scale (number)	body descriptor (text)	type (text)	magic (truth state)	resbypass (truth state)	non-infectious (truth state)	nocturnal (truth state)	altcombat (text)
 --	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	-- 	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--;
 
 When Play begins:
 	Choose a blank row from Table of random critters;
 	now name entry is "Cheetah Woman";
-	now attack entry is "[one of]She darts forward quickly, sideswiping you with her body.[or]Swiftly racing forward and to the side, she slashes at you as she passes.[or]Her front paw flashes out faster than the eye can follow, leaving a painful set of claw marks on you.[or]Lashing her tail in anticipation, the cheetah woman purrs as she stares deep into your eyes, her sinuous movements almost hypnotically appealing.[or]Charging forward with no warning whatsoever, she pounces and knocks you to the ground[or]She bunches her powerful hind legs up and leaps directly at you![or]She grins at you, baring her sharp feline teeth, before leaping forward and snapping them at you.[at random]";
+	now attack entry is "[one of]She darts forward quickly, sideswiping you with her body.[or]Swiftly racing forward and to the side, she slashes at you as she passes.[or]Her front paw flashes out faster than the eye can follow, leaving a painful set of claw marks on you.[or]Lashing her tail in anticipation, the cheetah woman purrs as she stares deep into your eyes, her sinuous movements almost hypnotically appealing.[or]Charging forward with no warning whatsoever, she pounces and knocks you to the ground.[or]She bunches her powerful hind legs up and leaps directly at you![or]She grins at you, baring her sharp feline teeth, before leaping forward and snapping them at you.[at random]";
 	now defeated entry is "[CheetahWomanLoses]";
 	now victory entry is "[CheetahWomanWins]";
 	now desc entry is "[CheetahWomanDesc]";
-	now face entry is "Sleek cheetah like face, with a short muzzle, soft whiskers, and small rounded ears resting on top of your new ";[ Face description, format as the text "You have a (your text) face."]
-	now body entry is "Slim and sleek, with not an ounce of wasted fat anywhere you can spot, its strong tight muscles made for running. You balance easily on your new pawlike feet, as they grip the ground tightly, you find yourself leaning forward slightly as you walk, as if you were always ready to spring into action.";[ Body Description, format as the text "Your Body is (your text)"]
-	now skin entry is "[one of]Cheetah spotted[or]Cheetah furred[or]Black and yellow spotted[or]slick furred[or]short fur covered[at random]";[ skin Description, format as the text "You have (your text) skin"]
-	now tail entry is "You have a long thin feline tail stretching out behind you, constantly lashing and curling around from side to side as if it is always eager to be moving, it is covered in [skin of player] skin and provides an excellent counterbalance to swift movement. ";[ Tail description, write a whole Sentence or leave blank. ]
-	now cock entry is "[one of]feline[or]cheetah[or]barbed[or]pointed[at random]";[ Cock Description, format as you have a 'size' (your text) cock]
-	now face change entry is "your mouth pushes out into a slim muzzle, your ears moving to the top of your head as your nose shrinks and becomes part of your new muzzle. Your vision blurs for a minute as your eyes water, then it clears and you the world comes into a new sharper focus before your now predatory eyes, as many new sharp enticing scents fill your feline nose."; [ face change text. format as "Your face feels funny as (your text)" ]
-	now body change entry is "it grows slim and sleek, your legs shifting forward and growing corded with tight muscles, soft paws forming on your feet for better traction when running. Your hands grow slender and sleek as well, with thick pads forming on the paws, though your fingers are still just as dexterous as ever, if not more so."; [ body change text. format as "Your body feels funny as (your text)" ]
-	now skin change entry is "a slick layer of short spotted fur begins to cover your body, the fur itches for a second, before lying down close to your skin, making you look sleek, dangerous, and cheetah like."; [ skin change text. format as "Your skin feels funny as (your text)" ]
-	now ass change entry is "A long thin spotted tail begins to form behind you, the end growing a small white tip of fur as it lashes behind you as if eager to be on the move."; [ ass/tail change text. format as "Your ass feels funny as (your text)" ]
-	now cock change entry is "it is drawn up closer to your body by a feline sheath forming around it, your cock itself continues to stretch and change as well, becoming pointed and small barbs growing out of it, both for your feline mates pleasure and your own."; [ cock change text. format as "Your cock feels funny as (your text)" ]
+	now face entry is "sleek and cheetah-like, with a short muzzle, soft whiskers, and small, rounded ears resting on top of your new head"; [ Face description, format as "Your face is (your text)."]
+	now body entry is "Slim and sleek, with not an ounce of wasted fat anywhere you can spot, its strong tight muscles made for running. You balance easily on your new paw-like feet, as they grip the ground tightly, you find yourself leaning forward slightly as you walk, as if you were always ready to spring into action"; [ Body Description, format as "Your Body is (your text)"]
+	now skin entry is "[one of]cheetah spotted[or]cheetah furred[or]black and yellow spotted[or]sleek furred[or]short fur covered[at random]"; [ skin Description, format as "You have (your text) skin"]
+	now tail entry is "You have a long, thin feline tail stretching out behind you, constantly lashing and curling around from side to side as if it is always eager to be moving. It is covered in [skin of player] skin and provides an excellent counterbalance to swift movement."; [ Tail description, write a whole Sentence or leave blank. ]
+	now cock entry is "[one of]feline[or]cheetah[or]barbed[or]pointed[at random]"; [ Cock Description, format as you have a 'size' (your text) cock]
+	now face change entry is "your mouth pushes out into a slim muzzle, your ears moving to the top of your head as your nose shrinks and becomes part of your new muzzle. Your vision blurs for a minute as your eyes water, then it clears and you the world comes into a new sharper focus before your now predatory eyes, as many new sharp enticing scents fill your feline nose"; [ face change text. format as "Your face feels funny as (your text)." ]
+	now body change entry is "it grows slim and sleek, your legs shifting forward and growing corded with tight muscles, soft paws forming on your feet for better traction when running. Your hands grow slender and sleek as well, with thick pads forming on the paws, though your fingers are still just as dexterous as ever, if not more so"; [ body change text. format as "Your body feels funny as (your text)." ]
+	now skin change entry is "a slick layer of short spotted fur begins to cover your body, the fur itches for a second, before lying down close to your skin, making you look sleek, dangerous, and cheetah like"; [ skin change text. format as "Your skin feels funny as (your text)." ]
+	now ass change entry is "A long thin spotted tail begins to form behind you, the end growing a small white tip of fur as it lashes behind you as if eager to be on the move"; [ ass/tail change text. format as "Your ass feels funny as (your text)." ]
+	now cock change entry is "it is drawn up closer to your body by a feline sheath forming around it, your cock itself continues to stretch and change as well, becoming pointed and small barbs growing out of it, both for your feline mates pleasure and your own"; [ cock change text. format as "Your cock feels funny as (your text)." ]
 	now str entry is 14;
 	now dex entry is 24;
 	now sta entry is 14;
@@ -65,8 +65,8 @@ When Play begins:
 	now int entry is 12;
 	now cha entry is 14;
 	now sex entry is "Male";  [ Defines which sex the infection will try and make you. current options are 'Male' 'Female' 'Both']
-	now hp entry is 40;
-	now lev entry is 4;  [ Level of the Monster, you get this much hp if you win, or this much hp halved if you loose ]
+	now HP entry is 40;
+	now lev entry is 4;  [ Level of the Monster, you get this much HP if you win, or this much HP halved if you loose ]
 	now wdam entry is 8;  [ Amount of Damage monster Does when attacking. ]
 	now area entry is "Zoo";  [ Current options are 'Outside' and 'Mall' Case sensitive]
 	now cocks entry is 1;  [ How many cocks will the infection try and cause if sex is 'Male' or 'Both']
@@ -102,9 +102,8 @@ The usedesc of cheetah milk is "[drinkcheetahmilk]";
 to say drinkcheetahmilk:
 	say "     You drink down the cheetah milk. It has a strangely pleasant taste and it helps quench your thirst a little. You feel a little more lustful and excited.";
 	if bodyname of player is "Cheetah Woman" and inheat is true, increase slutfucked by 1;
-	decrease thirst of player by 5;
+	PlayerDrink 5;
 	increase libido of player by 5;
-	if thirst of player < 0, now thirst of player is 0;
 
 the scent of cheetah milk is "The milk has a strongly feline scent that's rather enticing.".
 
@@ -136,7 +135,7 @@ to say cheetahwomanheatstart:
 		increase libido of player by 6;
 
 to say cheetahwomanheatend:
-	say "You release a soft mrowl as your heat passes, the ache in your [if cunts of player > 0]loins[else]anus[end if] subsiding somewhat.";
+	say "You release a soft mrowl as your heat passes, the ache in your [if player is female]loins[else]anus[end if] subsiding somewhat.";
 	now libido of player is ( libido of player * 9 ) / 10;
 	decrease slutfucked by 2;
 	if slutfucked < 0, now slutfucked is 0;
@@ -173,7 +172,7 @@ to say cheetahwomaninheat:
 				now monster is entry 1 of cmonlist;
 				choose row monster from the table of random critters;
 				say "Catching the scent of a feline on the air, your heat-driven instincts take over and you follow it in search of relief. You find the [name entry] soon enough, your pheromones having caught its nose. Immediately upon seeing the creature, you submit yourself, offering your [bodytype of player] body freely in the hopes of satisfying your lustful, heat-fueled needs.";
-				attempttowait;
+				WaitLineBreak;
 				follow the cock descr rule;
 				follow the cunt descr rule;
 				follow the breast descr rule;
@@ -181,7 +180,7 @@ to say cheetahwomaninheat:
 				infect;
 				decrease score by 5;
 				decrease morale of player by 3;
-				if "Kinky" is listed in feats of the player, increase the morale of the player by 6;
+				if player is kinky, increase the morale of the player by 6;
 			else:
 				say "As your feline heat courses through you, you sniff the air, trying to catch the scent of a nearby feline, but are unsuccessful[if cmonlist is empty]. Perhaps you'd best head somewhere you know there are more kitties to play with, your heat-filled mind decides[end if].";
 				increase slutfucked by 1;
@@ -197,8 +196,8 @@ Section 4 - Endings
 
 when play ends:
 	if bodyname of player is "Cheetah Woman":
-		if humanity of player is less than 10:
-			if cocks of player is greater than 0:
+		if humanity of player < 10:
+			if player is male:
 				say "Surrendering to your baser instincts, you find yourself running and running through the city, until you once more end up back in the zoo where you found that cheetah before. Following where your nose and your cock lead you, you soon find where the cheetah has made her den in one of the empty enclosures, and much to your surprise, she isn't alone either. You find her there slowly teasing another female cheetah as they relax during the day, the other female is obviously a new convert to the cheetah way of life much like yourself, but you find yourself unable to care about that anymore with the sight of two females in front of you. Their gazes focus on you as you proudly approach, a soft grin spreading across the muzzle of the cheetah you encountered earlier as she recognizes your fine spots and masculine scent.[line break]";
 				say "As the two cheetah women approach you eagerly, the more experienced cheetah nudges the newer cheetah woman ahead of her, making you grin in approval as you rub your body along her obviously nervous form, calming her down and preparing her for you. Once she is ready, her soft heat filled scent filling your muzzle with its delicious sexual promises, you move behind her and mount her properly, making her moan and yowl like the cat she now is. Sealing her fate as a cheetah as you shoot your seed inside her again and again until it is sure to take, your other cheetah mate stroking and teasing her as she moves underneath you. Having fully inducted her into her new life you leave her sated form in the new den as you turn eagerly to the cheetah that infected you originally, mating her again and again and reaffirming her position as your mate.[line break]";
 				say "Eventually the humans return to the city, and finding you living happily in the zoo, they eventually manage to convince you to relocate to another zoo where they can study you. You don't mind much at all, as you enjoy teasing the people who come to look with your magnificent cheetah body, and mating your mates where they can watch on scandalized. Some of them though you can tell are much more interested than scandalized, and having long ago managed to find the enclosure keys, you slip out and whisper to the more interested women to come back after dark and they will get a real show. Some do and some don't come back, those that do however rarely leave, though the some of zookeepers occasionally wonder why you always seem to have a new mate around the enclosure...";

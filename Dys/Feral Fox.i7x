@@ -15,7 +15,7 @@ Section 1 - Monster Responses
 
 to say FeralFoxDefeat:
 	say "     You were beaten by the creature.";
-	if cocks of player > 0:
+	if player is male:
 		say "     Additional paragraph for a male/herm player.";
 	else:
 		say "     Additional paragraph for a female player.";
@@ -23,15 +23,15 @@ to say FeralFoxDefeat:
 to say FeralFoxVictory:
 	say "     You were victorious over the creature.";
 	if libido of player > 40:
-		say "     Additional paragraph for a player with a libido greater than 40.  Do they want sex?";
+		say "     Additional paragraph for a player with a libido greater than 40. Do they want sex?";
 		if the player consents:
-			say "     The player agreed to sex.  Fun times begin.";
-			if cunts of player > 0:
+			say "     The player agreed to sex. Fun times begin.";
+			if player is female:
 				say "     The player is female/herm, so sex goes like this for her.";
 			else:
 				say "     The player must be male, so sex goes like this for him.";
 		else:
-			say "     Awww!  The player refused the sex.  Party pooper.";
+			say "     Awww! The player refused the sex. Party pooper.";
 
 to say FeralFoxDesc:
 	say "     Monster description paragraph 1.";
@@ -41,7 +41,7 @@ to say FeralFoxDesc:
 Section 2 - Monster Insertion
 
 Table of random critters (continued)
-name	attack	defeated	victory	desc	face	body	skin	tail	cock	face change	body change	skin change	ass change	cock change	str	dex	sta	per	int	cha	sex	hp	lev	wdam	area	cocks	cock length	cock width	breasts	breast size	male breast size	cunts	cunt length	cunt width	libido	loot	lootchance	scale (number)	body descriptor (text)	type (text)	magic (truth state)	resbypass (truth state)	non-infectious (truth state)	nocturnal (truth state)	altcombat (text)
+name	attack	defeated	victory	desc	face	body	skin	tail	cock	face change	body change	skin change	ass change	cock change	str	dex	sta	per	int	cha	sex	HP	lev	wdam	area	cocks	cock length	cock width	breasts	breast size	male breast size	cunts	cunt length	cunt width	libido	loot	lootchance	scale (number)	body descriptor (text)	type (text)	magic (truth state)	resbypass (truth state)	non-infectious (truth state)	nocturnal (truth state)	altcombat (text)
 --	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	-- 	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--;
 
 [ Adds a blank row to the table, this is immediately filled ;) ]
@@ -69,7 +69,7 @@ when play begins:
 	now int entry is 29;
 	now cha entry is 26;
 	now sex entry is "Male";
-	now hp entry is 60;
+	now HP entry is 60;
 	now lev entry is 5;
 	now wdam entry is 12;
 	now area entry is "Forest";
@@ -109,7 +109,7 @@ instead of sniffing fox cum:
 the usedesc of fox cum is "[FoxCumUse]";
 
 to say FoxCumUse:
-	say "You pop the lid off the container before chugging it down. Dropping the now empty vial, you start scratching all over yourself as you body suddenly heats up.";
+	say "You pop the lid off the container before chugging it down. Dropping the now empty vial, you start scratching all over yourself as your body suddenly heats up.";
 	if libido of player < 75:
 		now libido of player is 75;
 

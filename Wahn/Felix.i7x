@@ -23,9 +23,10 @@ Version 1 of Felix by Wahn begins here.
 
 Section 1 - Walk-in Event to put him into the dry plains room
 
-instead of navigating Dry Plains while (hp of Thomas > 0 and hp of Thomas < 100 and libido of Thomas > 9 and libido of Thomas < 20 and (FelixSaved - turns > 8) and hp of Felix is 0):
+instead of navigating Dry Plains while (HP of Thomas > 0 and HP of Thomas < 100 and libido of Thomas > 9 and libido of Thomas < 20 and (FelixSaved - turns > 8) and HP of Felix is 0):
 	say "[NavCheck Dry Plains]";
 	if NavCheckReturn is false, stop the action;
+	project the Figure of Felix_face_icon;
 	say "     As you come out into the dry plains, you see a centaur at your usual meeting spot with Thomas - though it isn't him, but Felix, the young centaur colt you helped save. He smiles and waves as he notices you, then trots closer. 'Hello there, nice to see you again. [if libido of Thomas is 10]Thomas is[else if libido of Thomas is 11]Thomas and Sandy are[else if libido of Thomas is 12]Thomas and the others are[end if] out gathering supplies and I offered to wait here in case you came along. I - I wanted to speak with you privately anyways.' He hesitates a moment, biting his lip before continuing. 'You see - I think there's... something stalking me, hiding out in the high grass. I feel like - whatever it is - watches me from time to time. But then, it might just be paranoia and I don't want to alarm everyone for nothing. Could you maybe help me out with this? There might be tracks or something...'";
 	LineBreak;
 	say "     What do you answer? Do you want to try looking for Felix mysterious stalker ([link]Y[as]y[end link]), or wave it off as just his imagination ([link]N[as]n[end link]) ?";
@@ -36,7 +37,7 @@ instead of navigating Dry Plains while (hp of Thomas > 0 and hp of Thomas < 100 
 		say "You roll 1d20([diceroll])+[bonus]: [diceroll + bonus], (Perception-Check)[line break]";
 		LineBreak;
 		increase diceroll by bonus;
-		if diceroll is greater than 10:
+		if diceroll > 10:
 			say "     Searching around for a while, you find a relatively fresh trail showing footprints of some creature. The marks on the ground look like they were made by something quadrupedal, its hands and feet a bit larger than a human's and armed with claws. Following the trail, you come to a flattened area of grass - looks like the creature lay down here to observe Felix unnoticed from behind the screen of grass. You'd say it's at least as large as a horse, from the size of the flattened imprint...";
 			LineBreak;
 			say "     Coming back to Felix, you tell him what you found. He's both relieved at not imagining things, as well as a bit frightened as you recount the clawed footmarks and the size of his stalker. 'Hm, it might be gone now... but I bet it'll be back. I'll be extra vigilant from now on and keep an eye out. Maybe you could... do something about it? I will tell you when I think it is close.' ";
@@ -47,14 +48,15 @@ instead of navigating Dry Plains while (hp of Thomas > 0 and hp of Thomas < 100 
 	else:
 		say "     Not in the mood to go trekking through the high grass for probably nothing, you do your best to calm Felix down. Your conversation soon turns to other topics and you chat until Thomas returns some time later.";
 		now Libido of Felix is 1;
-	now hp of Felix is 1;
+	now HP of Felix is 1;
 	move Felix to Dry Plains;
 	move player to Dry Plains;
 
-instead of navigating Dry Plains while (hp of Felix is 1 and libido of Felix is 3 and a random chance of 1 in 2 succeeds):
+instead of navigating Dry Plains while (HP of Felix is 1 and libido of Felix is 3 and a random chance of 1 in 2 succeeds):
 	say "[NavCheck Dry Plains]";
 	if NavCheckReturn is false, stop the action;
 	move player to Dry Plains;
+	project the Figure of Felix_face_icon;
 	say "     As you come out into the dry plains to your usual meeting spot with the centaurs, Felix is waiting for you. He's trying his best to look calm, but you can see something is up. 'See that large pile of rubble back there in the midst of all that high grass? I saw something moving there just now.' He gives a slight sideways nod with his head, as not too obviously point out the location. 'Please, can you go look?'";
 	say "     [Stalker1]";
 
@@ -70,7 +72,7 @@ to say Stalker1:
 			say "You roll 1d20([diceroll])+[bonus]: [diceroll + bonus], (Dexterity-Check)[line break]";
 			LineBreak;
 			increase diceroll by bonus;
-			if diceroll is greater than 10:
+			if diceroll > 10:
 				say "     Carefully selecting your hand and footholds, you make your way up on the large mound of rubble. With the higher position, you can clearly see the centaurs in the distance, as well as a creature lurking in the grass, crouched low to keep itself hidden and watching your friends. Looks like a large lizard, about as big as a horse. It's quadrupedal and has sand-yellow scales that serve well to blend with the dry grass. Continuing on your climb, you move down the other side of the rubble until you're standing close behind the creature.";
 				say "     [AndreMeeting]";
 			else:
@@ -89,7 +91,7 @@ to say Stalker1:
 		say "     Not in the mood to go trekking through the high grass, you do your best to calm Felix down and tell him you'll look into it another time. He looks a rather disappointed, but gives you a curt nod and says he understands.";
 	move player to Dry Plains;
 
-instead of navigating Dry Plains while (hp of Felix is 1 and libido of Felix is 4 and a random chance of 1 in 2 succeeds):
+instead of navigating Dry Plains while (HP of Felix is 1 and libido of Felix is 4 and a random chance of 1 in 2 succeeds):
 	say "[NavCheck Dry Plains]";
 	if NavCheckReturn is false, stop the action;
 	move player to Dry Plains;
@@ -107,7 +109,7 @@ to say Stalker2:
 			say "You roll 1d20([diceroll])+[bonus]: [diceroll + bonus], (Dexterity-Check)[line break]";
 			LineBreak;
 			increase diceroll by bonus;
-			if diceroll is greater than 10:
+			if diceroll > 10:
 				say "     Carefully selecting your hand and footholds, you make your way up on the large mound of rubble. With the higher position, you can clearly see the centaurs in the distance, as well as a creature lurking in the grass, crouched low to keep itself hidden and watching your friends. Looks like a large lizard, about as big as a horse. It's quadrupedal and has sand-yellow scales that serve well to blend with the dry grass. Continuing on your climb, you move down the other side of the rubble until you're standing close behind the creature.";
 				say "     [AndreMeeting]";
 			else:
@@ -142,6 +144,7 @@ to say AndreMeeting:
 		challenge "Plains Lizard";
 		now Libido of Felix is 99;
 	else:
+		project the Figure of Andre_face_icon;
 		say "     Standing behind the horse-sized lizard, you clear your throat. With a shocked expression, he turns his head, then whirls around to fully face you and starts to stutter 'What? B-but you left - I saw - you were -' His head whips around towards the distant centaurs, then back to you. 'I - er - was just - em -' While looking pretty ferocious with his claws and teeth, the lizard guy seems very flustered at getting caught by you. Finally, you tell him to take a deep breath and explain what he's doing here.";
 		say "     'I'm Andre. I was on a break from college when I changed, and everything around changed.' *he indicates the grassland around you* 'And I was doing my best to survive and I - I saw... Him' *he nods towards the distant centaurs* '...a while ago, and he looked so cute, and I wanted to talk to him - but - but then that behemoth found him and he had to run and I couldn't help against something like that and he lost this.' He shows you a leather pouch with a long carrying leather strap and takes another deep breath. 'I kept it to give it back to him, but then I didn't know if he'd like me and if I should just go to him and...'";
 		LineBreak;
@@ -155,7 +158,7 @@ to say AndreMeeting:
 
 Section 2 - Felix, the centaur
 
-Felix is a man. The hp of Felix is normally 0.
+Felix is a man. The HP of Felix is normally 0.
 The description of Felix is "[FelixDesc]".
 The conversation of Felix is { "Mew!" }.
 lastFelixTalk is a number that varies. lastFelixTalk is usually 555. [turn-counter for talking delays (humanity restoration)]
@@ -166,21 +169,21 @@ instead of sniffing Felix:
 
 to say FelixDesc:
 	if debugactive is 1:
-		say "DEBUG -> HP: [hp of Felix], LIBIDO: [libido of Felix] <- DEBUG[line break]";
-	if (hp of Felix is 0): [starting state]
+		say "DEBUG -> HP: [HP of Felix], LIBIDO: [libido of Felix] <- DEBUG[line break]";
+	if (HP of Felix is 0): [starting state]
 		say "ERROR-Felix-001A: He should not be around yet anywhere where players can see him.";
-	else if (hp of Felix is 100):
+	else if (HP of Felix is 100):
 		say "ERROR-Felix-100A: He should be removed from the game.";
-	else if hp of Felix is 1:
+	else if HP of Felix is 1:
 		say "     Felix is a handsome young centaur, his human upper body looking like he's about twenty years of age, the lower equine half is lithe and slender as if made for winning races. Below his belly button, where the horse body starts, he's got a beautiful light brown coat shining in the [if daytimer is day]sunlight[else]moonlight[end if], while his tail and shoulder-length hair is more reddish in hue. Unobtrusively letting your eyes wander to his hind legs, you see the young stallion's large pair of balls and equine sheath. Looking up to Felix face again before he notices you checking him out, he catches you with one of his glowing smiles.";
-	else if hp of Felix is 2:
+	else if HP of Felix is 2:
 		say "     Felix is a handsome young centaur, his human upper body looking like he's about twenty years of age, the lower equine half is lithe and slender as if made for winning races. Below his belly button, where the horse body starts, he's got a beautiful light brown coat shining in the [if daytimer is day]sunlight[else]moonlight[end if], while his tail and shoulder-length hair is more reddish in hue. Unobtrusively letting your eyes wander to his hind legs, you see the young stallion's large pair of balls and equine sheath.";
 		say "     Looking up to Felix face again before he notices you checking him out, you realize that you needn't have worried. He's busy exchanging longing looks with his new boyfriend Andre, almost everything around them forgotten.";
 
 instead of conversing the Felix:
-	if (hp of Felix is 0): [not yet met]
+	if (HP of Felix is 0): [not yet met]
 		say "ERROR-Felix-001B: He should not be around yet anywhere where players can see him.";
-	else if (hp of Felix is 100): [removed from game]
+	else if (HP of Felix is 100): [removed from game]
 		say "ERROR-Felix-100A: He should be removed from the game.";
 	else:
 		say "     Felix smiles as you come closer and says 'Hello, what's up?'";
@@ -188,6 +191,7 @@ instead of conversing the Felix:
 		say "[FelixTalkMenu]";
 
 to say FelixTalkMenu:
+	project the Figure of Felix_face_icon;
 	blank out the whole of table of fucking options;
 	choose a blank row in table of fucking options;
 	now title entry is "Just chat a bit";
@@ -272,7 +276,7 @@ to say FelixTalk2:
 	say "You roll 1d20([diceroll])+[bonus]: [diceroll + bonus], (Perception-Check)[line break]";
 	LineBreak;
 	increase diceroll by bonus;
-	if diceroll is greater than 10:
+	if diceroll > 10:
 		say "     Searching around for a while, you find a relatively fresh trail showing footprints of some creature. The marks on the ground look like they were made by something quadrupedal, its hands and feet a bit larger than a human's and armed with claws. Following the trail, you come to a flattened area of grass - looks like the creature lay down here to observe Felix unnoticed from behind the screen of grass. You'd say it's at least as large as a horse, from the size of the flattened imprint...";
 		LineBreak;
 		say "     Coming back to Felix, you tell him what you found. He's both relieved at not imagining things, as well as a bit frightened as you recount the clawed footmarks and the size of his stalker. 'Hm, it might be gone now... but I bet it'll be back. I'll be extra vigilant from now on and keep an eye out. Maybe you could... do something about it? I will tell you when I think it is close.' ";
@@ -300,7 +304,7 @@ to say FelixTalk4:
 	LineBreak;
 	say "     Watching the making out that follows and seeing the two of them walk a bit away to talk and laugh with each other, it looks like you helped two people destined for each other to find together. It's a very comforting thought that love on first sight and affectionate feelings aren't quite dead in this sex-crazed new world. And who cares if it's between a rather unusual centaur-lizard gay couple - they're obviously quite happy together...";
 	now Libido of Felix is 6;
-	now hp of Felix is 2;
+	now HP of Felix is 2;
 	move Andre to Dry Plains;
 
 
@@ -308,11 +312,11 @@ to say FelixTalk5:
 	say "     You walk up to Felix and tell him 'You can stop worrying now - turns out it was some sort of lizard dude stalking you, but I took care of things. He won't be bothering you anymore. Oh, and he had this...' With that, you pull out the leather pouch and hand it to Felix. He looks surprised to see it, saying 'Hey, I lost this - I thought I'd never see it again. Guess my stalker picked it up, hm?' He gives you a hug, then continues 'Thank you so much for bringing it back.' Opening up the bag, he looks through its contents - a book, a small plastic dragon, pens and various knickknacks come to light. 'This is everything I ever owned - my favorite toys and possessions from all the weeks of my childhood. One of my father's mares gave it to me when he threw me out.'";
 	LineBreak;
 	say "     Leaving the young centaur to reminisce about his short time as a kid (from a human perspective), you turn your thoughts back towards everyday survival.";
-	now hp of Felix is 99;
+	now HP of Felix is 99;
 	now Libido of Felix is 100;
 
 to say FelixTalk6:
-	if hp of Thomas is 100: [lost in the fight with Jill's followers]
+	if HP of Thomas is 100: [lost in the fight with Jill's followers]
 		if libido of Thomas is 10:
 			say "     Felix looks rather grim as he says 'Which herd? Thomas is gone - something terrible must have happened to him when he went to help that centaur mare Jill. I wish he had allowed me to come with him and help, maybe that'd have changed something.'";
 		else if libido of Thomas is 11:
@@ -341,12 +345,12 @@ Instead of fucking the Felix:
 		if name entry is "Centaur Stallion":
 			now monster is y;
 			break;
-	if (hp of Felix is 0): [not yet met]
+	if (HP of Felix is 0): [not yet met]
 		say "ERROR-Felix-001C: He should not be around yet anywhere where players can see him.";
-	else if (hp of Felix is 100): [avoiding the player]
+	else if (HP of Felix is 100): [avoiding the player]
 		say "ERROR-Felix-100B: He should be removed from the game.";
 	else:
-		if(lastfuck of Felix - turns < 6):
+		if (lastfuck of Felix - turns < 6):
 			say "     Felix says 'Sorry I'm still worn out from last time. Give me some space, ok?'";
 		else if (Libido of Felix < 6 or Libido of Felix > 90):
 			say "     Felix says 'Thanks for the offer - though I think I'll wait a bit more before doing any of that. I mean - you have my thanks for saving me, but... I want to be together with someone - not just have sex. Someone I care for.'";
@@ -354,8 +358,9 @@ Instead of fucking the Felix:
 			say "[FelixSexMenu]";
 
 to say FelixSexMenu:
+	project the Figure of Felix_icon;
 	blank out the whole of table of fucking options;
-	if (cocks of player > 0):
+	if player is male:
 		choose a blank row in table of fucking options;
 		now title entry is "Have him blow your cock";
 		now sortorder entry is 1;
@@ -366,7 +371,7 @@ to say FelixSexMenu:
 	now sortorder entry is 2;
 	now description entry is "Put Felix long horsecock in your mouth.";
 	now toggle entry is FelixSex rule;
-	if (cunts of player > 0):
+	if player is female:
 		choose a blank row in table of fucking options;
 		now title entry is "Have him lick your pussy";
 		now sortorder entry is 3;
@@ -418,7 +423,7 @@ This is the FelixSex rule:
 to say FelixSex1: [cock sucked by Felix]
 	say "     Walking up to Felix, you run your hands over his muscular chest, then stroke his cheek and lean close to him. You whisper 'You know what would be hot...' and pull Felix hands down to your crotch '...you sucking off my cock.' Smiling, Felix pulls out your hard [cock of player] cock, pumping it in his hand. 'Anything for you, man. You saved me and brought Andre and me together.'";
 	LineBreak;
-	say "     With that, he leans over and takes your shaft in his mouth, bobbing up and down on it. Being a man, he knows how to handle a cock and what you need, so the blowjob that follows is pretty amazing. Bringing you to the edge of cumming several times, then allowing you to catch your breath to prolong the experience, he has you highly wound up and aching to cum when he finally goes all out. You're deep in Felix throat with his nose pressed against you crotch when you finally cum, squirting cum right into his stomach. The young centaur pulls back a bit before you're completely done so he can taste your seed, then shows it to you on his tongue and swallows it too.";
+	say "     With that, he leans over and takes your shaft in his mouth, bobbing up and down on it. Being a man, he knows how to handle a cock and what you need, so the blowjob that follows is pretty amazing. Bringing you to the edge of cumming several times, then allowing you to catch your breath to prolong the experience, he has you highly wound up and aching to cum when he finally goes all out. You're deep in Felix throat with his nose pressed against your crotch when you finally cum, squirting cum right into his stomach. The young centaur pulls back a bit before you're completely done so he can taste your seed, then shows it to you on his tongue and swallows it too.";
 	infect "Centaur Stallion";
 
 to say FelixSex2: [sucking Felix cock]
@@ -435,7 +440,7 @@ to say FelixSex3: [cunt licked by Felix]
 	infect "Centaur Mare";
 
 to say FelixSex4: [fingering Felix ass]
-	say "     You go and give Felix a kiss on the cheek, then whisper in his ear 'How about you let me play with your ass a bit? I know you only want your boyfriend to fuck you, but we can still have some fun, can't we? Come on, you'll like it.' After a moment's hesitation, he smiles and gives you a nod. Running your hands down over the Felix muscled chest, then along his flank as you walk around his equine body to his read end. Groping the muscled flesh of his ass, you make him moan in anticipation, then raise his reddish tail to reveal his asshole. You lean forward and lick over the young centaur's pucker, revelling in his initial 'Oh? Oh!' and the gasps that follow. Running your tongue up and down his crack, then poking his hole with it, you make Felix pant and moan and soon you hear him say 'This feels amazing!'";
+	say "     You go and give Felix a kiss on the cheek, then whisper in his ear 'How about you let me play with your ass a bit? I know you only want your boyfriend to fuck you, but we can still have some fun, can't we? Come on, you'll like it.' After a moment's hesitation, he smiles and gives you a nod. Running your hands down over the Felix muscled chest, then along his flank as you walk around his equine body to his read end. Groping the muscled flesh of his ass, you make him moan in anticipation, then raise his reddish tail to reveal his asshole. You lean forward and lick over the young centaur's pucker, reveling in his initial 'Oh? Oh!' and the gasps that follow. Running your tongue up and down his crack, then poking his hole with it, you make Felix pant and moan and soon you hear him say 'This feels amazing!'";
 	LineBreak;
 	say "     Oh, but that's only the start of what you have planned for him... you bring your hand to his hole and start to massage it. After starting slow with one and two fingers, you get him to loosen up and soon are able to slip three, then four fingers in - followed by your whole hand. Pushing deeper into the centaur's body, you stroke his inner passage, grinning at the lust-filled panting and moaning you create with that. Feeling around a bit, you find a spot that seems especially sensitive judging from the joyful gasps it makes Felix do every time you stroke over it. Concentrating on that, it doesn't take much longer until the centaur orgasms, his sphincter gripping your arm tightly as a huge load of cum gushes from his horsecock onto the ground, creating a small puddle.";
 	infect "Centaur Stallion";
@@ -446,7 +451,7 @@ to say FelixSex5: [Andre fucks Felix]
 	WaitLineBreak;
 	say "     Watching your two friends interspecies coupling, you can't help yourself from drifting closer and closer to get a better look. Soon you're standing right next to them, close enough to feel the heat of their bodies. Felix gives you a smile, unashamedly moaning and panting as his boyfriend thrusts into him from behind. His fully erect horsecock dangles under him, showing his arousal with a string of precum dribbling down onto the ground. One thing to be said for people born after the nanite infection spread - they certainly don't have any sexual hangups.";
 	say "     From your ringside position, you observe the arousal of your two friends mount quickly, Andre's thrusts getting faster and so urgent that he pushes the centaur a few steps forward before Felix puts down his hooves the right way to hold fast against him. Before much longer, the big lizard hisses 'I'm really close, baby. Where do you...' and Felix reaches back to stroke his face and neck, interrupting with a moaned 'Just come inside me, I want to feel you.' With nothing more holding Andre back, he really goes to town on Felix ass, slamming forward against his muscled equine rump. The stimulation of the pointy and ridged reptilian shaft rubbing against his insides finally drives the young centaur over the edge, giving a lustful shout as he starts cumming, long blasts of his seed squirting out of the head of his cock and onto the dry ground. With his boyfriend's muscles flexing and quivering around his thrusting shaft, Andre isn't far behind. He roars and buries his cock all the way inside Felix ass as he orgasms, shooting string after string of his seed inside the centaur.";
-	say "     Still on top and inside his friend, Andre licks Felix sweaty back, then stretches his neck a bit so he can reach the centaur's nipples with his long tongue. Felix gives a fresh moan at the sudden stimulation, then pulls his reptilian lovers head up to his, kissing him deeply. They make out a bit and tell each other how much they love another before the big lizard dismounts, pulling his softening shaft out of Felix cum-dripping hole. You leave the two boys to clean up and spend some more time together, returning your thoughts to matters of everyday survival.";
+	say "     Still on top and inside his friend, Andre licks Felix sweaty back, then stretches his neck a bit so he can reach the centaur's nipples with his long tongue. Felix gives a fresh moan at the sudden stimulation, then pulls his reptilian lover's head up to his, kissing him deeply. They make out a bit and tell each other how much they love another before the big lizard dismounts, pulling his softening shaft out of Felix cum-dripping hole. You leave the two boys to clean up and spend some more time together, returning your thoughts to matters of everyday survival.";
 
 to say FelixSex6: [Felix fucks Andre]
 	say "     You go and give Felix a kiss on the cheek, then whisper in his ear 'How about you give Andre a good time? Just imagine sliding into his tight ass, feeling your cock inside him... I'd love watching the two of you together.' Felix smiles as his looks move over to his reptilian boyfriend, and you see his horsecock slide out of its sheath and harden in anticipation. With a little grin and a nod to you, the young centaur trots over to Andre, pulling him in for a hungry kiss.";
@@ -457,7 +462,7 @@ to say FelixSex6: [Felix fucks Andre]
 
 Section 4 - Andre, the lizard
 
-Andre is a man. The hp of Andre is normally 0.
+Andre is a man. The HP of Andre is normally 0.
 The description of Andre is "[AndreDesc]".
 The conversation of Andre is { "Mew!" }.
 lastAndreTalk is a number that varies. lastAndreTalk is usually 555.	     [turn-counter for talking delays (humanity restoration)]
@@ -467,18 +472,18 @@ instead of sniffing Andre:
 	say "Andre has a pleasant animalistic smell. It's definitely male, with a kind of spicy undertone.";
 
 to say AndreDesc:
-	if (hp of Felix < 2): [starting state]
+	if (HP of Felix < 2): [starting state]
 		say "ERROR-Andre-001A: He should not be around yet anywhere where players can see him.";
-	else if (hp of Felix is 100):
+	else if (HP of Felix is 100):
 		say "ERROR-Andre-100A: He should be removed from the game (together with Felix).";
-	else if hp of Felix is 2:
+	else if HP of Felix is 2:
 		say "     Andre is an about horse-sized lizard, strong and agile. He is quadrupedal and has a long and flexible tail and neck, with the latter ending in an elongated reptilian head with sharp teeth. On top of his head is a spined crest, giving him a dashing appearance. With his sand-colored scales glinting in the [if daytimer is day]sunlight[else]moonlight[end if], it looks like he was made to prowl these dry plains. You wonder if the nanites would adjust his coloring to a greener environment or other areas. Unobtrusively letting your eyes wander to his hind legs, you catch a glimpse of a small slit between his legs. He doesn't have any external balls or anything, but you remember that there's a quite impressive cock hidden inside that sheath.";
 		say "     Looking up to Andre face again before he notices you checking him out, you realize that you needn't have worried. He's busy exchanging longing looks with his new boyfriend Felix, almost everything around them forgotten.";
 
 instead of conversing the Andre:
-	if (hp of Felix is 0): [not yet met]
+	if (HP of Felix is 0): [not yet met]
 		say "ERROR-Andre-001B: He should not be around yet anywhere where players can see him.";
-	else if (hp of Felix is 100): [removed from game]
+	else if (HP of Felix is 100): [removed from game]
 		say "ERROR-Andre-100A: He should be removed from the game, together with Felix.";
 	else:
 		say "     Andre gives you a tooth-filled (but friendly) smile as you come closer and says 'Hey there, what's up?'";
@@ -486,6 +491,7 @@ instead of conversing the Andre:
 		say "[AndreTalkMenu]";
 
 to say AndreTalkMenu:
+	project the Figure of Andre_face_icon;
 	blank out the whole of table of fucking options;
 	choose a blank row in table of fucking options;
 	now title entry is "Just chat a bit";
@@ -547,7 +553,7 @@ to say Plains Lizard loses:
 	say "     After having taken quite a few of your blows, the big lizard turns and flees, dashing off quickly through the high grass. With the beating you've given him, you don't think he'll be back anytime soon. Oh, and seems like he dropped something - a leather pouch, with Felix name written on it. You take it with you. Might be best to ask the young centaur about it.";
 
 Table of random critters (continued)
-name	attack	defeated	victory	desc	face	body	skin	tail	cock	face change	body change	skin change	ass change	cock change	str	dex	sta	per	int	cha	sex	hp	lev	wdam	area	cocks	cock length	cock width	breasts	breast size	male breast size	cunts	cunt length	cunt width	libido	loot	lootchance
+name	attack	defeated	victory	desc	face	body	skin	tail	cock	face change	body change	skin change	ass change	cock change	str	dex	sta	per	int	cha	sex	HP	lev	wdam	area	cocks	cock length	cock width	breasts	breast size	male breast size	cunts	cunt length	cunt width	libido	loot	lootchance
 --	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--;
 
 When Play begins:
@@ -559,14 +565,14 @@ When Play begins:
 	now desc entry is " ";
 	now face entry is "elongated and reptilian, with a tooth-filled mouth and only slits on your snout as a nose. A spined crest runs over the top of your head and down the long neck, ending at the shoulders and giving you a dashing appearance";
 	now body entry is "that of a very large lizard, at least as big as a horse. It's muscular, but sleek, promising agility and speed on your four legs";
-	now skin entry is "scaled, sand-colored";[ format as the text "You have (your text) skin"]
-	now tail entry is "A long and flexible tail stands out behind you, perfect to keep your balance.";[ write a whole Sentence or leave blank. ]
-	now cock entry is "ridged, reptilian";[ format as "You have a 'size' (your text) cock ]
-	now face change entry is "it shapes itself into the elongated shape of a lizard, complete with snout and tooth-filled maw. Instead of hair, a spined crest forms on the top of your head, running down the back of your neck and ending between your shoulders"; [ format as "Your face feels funny as (your text)" ]
-	now body change entry is "it is reshaped into a large lizard's, a quadrupedal form that promises strength as well as speed with its sleek lines"; [  format as "Your body feels funny as (your text)" ]
-	now skin change entry is "small scales form to cover all of it, giving you a sand-colored, reptilian skin"; [ format as "Your skin feels funny as (your text)" ]
-	now ass change entry is "a long flexible tail grows out of your tailbone. After a few moments, it stops feeling strange and you start using the tail for balance as if you had been born with it"; [ format as "Your ass feels funny as (your text)" ]
-	now cock change entry is "it becomes more reptilian, a sheath forming inside your body to allow it to completely vanish inside as long as its soft"; [ format as "Your cock feels funny as (your text)" ]
+	now skin entry is "scaled, sand-colored"; [ format as "You have (your text) skin"]
+	now tail entry is "A long and flexible tail stands out behind you, perfect to keep your balance."; [ write a whole Sentence or leave blank. ]
+	now cock entry is "ridged, reptilian"; [ format as "You have a 'size' (your text) cock ]
+	now face change entry is "it shapes itself into the elongated shape of a lizard, complete with snout and tooth-filled maw. Instead of hair, a spined crest forms on the top of your head, running down the back of your neck and ending between your shoulders"; [ format as "Your face feels funny as (your text)." ]
+	now body change entry is "it is reshaped into a large lizard's, a quadrupedal form that promises strength as well as speed with its sleek lines"; [  format as "Your body feels funny as (your text)." ]
+	now skin change entry is "small scales form to cover all of it, giving you a sand-colored, reptilian skin"; [ format as "Your skin feels funny as (your text)." ]
+	now ass change entry is "a long flexible tail grows out of your tailbone. After a few moments, it stops feeling strange and you start using the tail for balance as if you had been born with it"; [ format as "Your ass feels funny as (your text)." ]
+	now cock change entry is "it becomes more reptilian, a sheath forming inside your body to allow it to completely vanish inside as long as its soft"; [ format as "Your cock feels funny as (your text)." ]
 	now str entry is 14;
 	now dex entry is 16;
 	now sta entry is 14;
@@ -574,7 +580,7 @@ When Play begins:
 	now int entry is 10;
 	now cha entry is 12;
 	now sex entry is "Male";
-	now hp entry is 40;
+	now HP entry is 40;
 	now lev entry is 6;
 	now wdam entry is 8;
 	now area entry is "Nowhere";        [ Case sensitive]
@@ -583,7 +589,7 @@ When Play begins:
 	now cock width entry is 5;          [ Size of balls ]
 	now breasts entry is 0;             [ Number of nipples. ]
 	now breast size entry is 0;         [ Size of breasts infection will try to attain ]
-	now male breast size entry is 0;    [ Breast size for if Sex="Male", usually zero. ]
+	now male breast size entry is 0; [ Breast size for if Sex="Male", usually zero. ]
 	now cunts entry is 0;               [ number of pussies if sex is 'Female' or 'Both' ]
 	now cunt length entry is 0;
 	now cunt width entry is 0;
@@ -591,7 +597,7 @@ When Play begins:
 	now loot entry is "";               [ Dropped item, blank for none. Case sensitive. ]
 	now lootchance entry is 0;          [ Percentage chance of dropping loot, from 0-100. ]
 	now scale entry is 3;               [ Number 1-5, approx size/height of infected PC body: 1=tiny, 3=avg, 5=huge ]
-	now body descriptor entry is "sleek";      [ Ex: "plump" "fat" "muscled" "strong" "slimy" "gelatinous" "slender"   Use [one of] to vary ]
+	now body descriptor entry is "sleek";      [ Ex: "plump" "fat" "muscled" "strong" "slimy" "gelatinous" "slender". Use [one of] to vary ]
 	now type entry is "reptilian";      [ one-word creature type. Ex: feline, canine, lupine, robotic, human... Use [one of] to vary ]
 	now magic entry is false;
 	now resbypass entry is false;
@@ -608,19 +614,20 @@ Instead of fucking the Andre:
 		if name entry is "Plains Lizard":
 			now monster is y;
 			break;
-	if (hp of Felix is 0): [not yet met]
+	if (HP of Felix is 0): [not yet met]
 		say "ERROR-Andre-001C: He should not be around yet anywhere where players can see him.";
-	else if (hp of Felix is 100): [avoiding the player]
+	else if (HP of Felix is 100): [avoiding the player]
 		say "ERROR-Andre-100B: He should be removed from the game, together with Felix.";
 	else:
-		if(lastfuck of Andre - turns < 6):
+		if (lastfuck of Andre - turns < 6):
 			say "     Andre says 'Phew, I need a break for a bit. Another time, ok?'";
 		else:
 			say "[AndreSexMenu]";
 
 to say AndreSexMenu:
+	project the Figure of Andre_icon;
 	blank out the whole of table of fucking options;
-	if (cocks of player > 0):
+	if player is male:
 		choose a blank row in table of fucking options;
 		now title entry is "Have him blow your cock";
 		now sortorder entry is 1;
@@ -631,7 +638,7 @@ to say AndreSexMenu:
 	now sortorder entry is 2;
 	now description entry is "Put Andre's cock in your mouth.";
 	now toggle entry is AndreSex rule;
-	if (cunts of player > 0):
+	if player is female:
 		choose a blank row in table of fucking options;
 		now title entry is "Have him lick your pussy";
 		now sortorder entry is 3;
@@ -701,7 +708,7 @@ to say AndreSex3: [cunt licked by Andre]
 	infect "Plains Lizard";
 
 to say AndreSex4: [fingering Andre ass]
-	say "     Walking up to Andre, you run a hand over his long scaled neck, then along his body until you come to his hind legs. Smiling at the big lizard as he cranes his neck to see what you're doing, you move your hand further back under his tail and find the his pucker. Rubbing it and hearing the surprised hiss he makes, you say 'Relax, I just want to play a bit with your ass. You'll like it - and you want to train your muscles back here for Felix, don't you?' 'Err - of course.' he answers, and you can see his opening relax a bit.";
+	say "     Walking up to Andre, you run a hand over his long scaled neck, then along his body until you come to his hind legs. Smiling at the big lizard as he cranes his neck to see what you're doing, you move your hand further back under his tail and find the his pucker. Rubbing it and hearing the surprised hiss he makes, you say 'Relax, I just want to play a bit with your ass. You'll like it - and you want to train your muscles back here for Felix, don't you?' 'Err - of course,' he answers, and you can see his opening relax a bit.";
 	LineBreak;
 	say "     You bring your hand to his hole and start to massage it, rubbing it and the surprisingly sensitive underside of his long tail. Starting slow, you push one, then two fingers inside his ass, working them in and out a bit until he relaxes his muscles even more and you can add another finger. After a while, you got him loosened up enough that you can slip four fingers in - followed by your whole hand. Pushing deeper into the big lizard's body, you stroke his inner passage, grinning at the lust-filled hisses and moaning you create with that. Feeling around a bit, you find a spot that seems especially sensitive judging from the joyful gasps it makes Andre do every time you stroke over it. Concentrating on that, it doesn't take much longer until the big lizard orgasms, his sphincter gripping your arm tightly as spurt after spurt of cum blasts from his ridged cock and hits the ground.";
 	infect "Plains Lizard";

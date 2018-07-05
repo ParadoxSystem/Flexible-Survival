@@ -20,26 +20,18 @@ Version 1 of Skarnoth by Wahn begins here.
 [  20: player took him as a slave and moved him into the library                           ]
 
 
-Half-Renovated Room is a room.
-Northwest of Grey Abbey Library is Half-Renovated Room.
-Half-Renovated Room is sleepsafe.
-The description of Half-Renovated Room is "[LibrarySideRoomDesc]";
-
-to say LibrarySideRoomDesc:
-	say "     This large room of the Grey Abbey Library seems to be where most of the furniture of the old abbey ended up when the building was converted to its new purpose. With its high ceiling, ample floor-space and even a big fireplace, it could have been a dining hall or something in the past. Now it is mostly filled with numerous pieces of furniture, some stacked quite high and partially covered in white sheets. The two still accessible walls are covered in scaffolding and show signs of recent work on them - looks like workers were in the progress of refurbishing the room for library use when the nanite outbreak began.";
-	if Skarnoth is in Half-Renovated Room:
-		say "     Since you brought the demon prince Skarnoth here and securely attached the long chain on his collar to the scaffolding, the imprisoned predator has done his best to improve his comfort of his prison. A soft (if somewhat threadbare and stained) couch has been dragged to stand against the back wall and shows signs of being used as a bed. He even found a high-backed armchair somewhere, which is now set up next to the fireplace. Sitting in it, the demon awaits you, wearing an arrogant expression as if he was a king awaiting supplicants.";
 
 Section 1 - Description
 
-Skarnoth is a man. The hp of Skarnoth is usually 0.
+Skarnoth is a man. The HP of Skarnoth is usually 0.
 The description of Skarnoth is "[SkarnothDesc]".
 The conversation of Skarnoth is { "Woof." }.
 SkarnothLibraryEntry is a number that varies. [when he was brought in]
 
 to say SkarnothDesc:
 	if debugactive is 1:
-		say "DEBUG -> HP: [hp of Skarnoth], LEVEL: [level of Skarnoth], LIBIDO: [libido of Skarnoth], LIBRARY ENTRY TURN: [SkarnothLibraryEntry] <- DEBUG[line break]";
+		say "DEBUG -> HP: [HP of Skarnoth], LEVEL: [level of Skarnoth], LIBIDO: [libido of Skarnoth], LIBRARY ENTRY TURN: [SkarnothLibraryEntry] <- DEBUG[line break]";
+	project the figure of Skarnoth_undies_icon;
 	say "     Skarnoth the demon prince is a magnificent specimen of masculinity, with a strikingly handsome face framed by blood-red hair. His firm pecs and six-pack abs would fit an underwear model - which he kind of is, as you stripped him of his regalia, taking off anything but a skin-tight black thong. The strip of fabric does more to show off the bulge of his package than to conceal anything.";
 	say "     Letting your gaze stray from the flawless, reddish skin of the demon's torso, his similarity to the perfection a Greek statue does diminish a bit - as Skarnoth's otherworldly nature shows clearly on the rest of his body. Starting with a few small scales on the sides of his upper body, then larger and more solid ones on his hips and down the legs, the infernal being has overlapping, flexible scales. His feet bear sharp claws, as do the hands (if a bit smaller ones), and further scale-plates make it appear like he is wearing elaborate bracers as well as pauldrons to cover his shoulders. Also, he has a long tail with a ridge of scales running down the backside, ending in a spaded tip. A pair of large horns curving up from his head completes the image of a handsome and dangerous predator.";
 
@@ -48,10 +40,10 @@ The scent of Skarnoth is "     Skarnoth has an almost entrancing, sexy scent. A 
 Section 2 - Talking
 
 instead of conversing the Skarnoth:
-	if (hp of Skarnoth > 0):
+	if (HP of Skarnoth > 0):
 		say "     <This is a placeholder text for this WIP npc. Please have some patience until there is time to write more content for Skarnoth>";
 	else:
-		say "ERROR-Skarnoth-[hp of Skarnoth]C: He isn't in one of the states she should be in! Please report how you got to this message.";
+		say "ERROR-Skarnoth-[HP of Skarnoth]C: He isn't in one of the states she should be in! Please report how you got to this message.";
 
 Section 3 - Sex
 
@@ -62,6 +54,7 @@ Instead of fucking the Skarnoth:
 	say "[SkarnothSexMenu]";
 
 to say SkarnothSexMenu:
+	project the figure of Skarnoth_naked_icon;
 	setmonster "Demon Prince";
 	choose row monster from the table of random critters;
 	now sextablerun is 0;
@@ -72,19 +65,19 @@ to say SkarnothSexMenu:
 	now sortorder entry is 1;
 	now description entry is "Give him a blow-job";
 	[]
-	if (cocks of player > 0):
+	if player is male:
 		choose a blank row in table of fucking options;
 		now title entry is "Face-fuck him";
 		now sortorder entry is 2;
 		now description entry is "Use the demon's mouth";
 	[
-	if (cocks of player > 0 or cunts of player > 0):
+	if player is not neuter:
 		choose a blank row in table of fucking options;
 		now title entry is "69 with Skarnoth";
 		now sortorder entry is 3;
 		now description entry is "Share oral pleasures with your male demon";
 	[]
-	if (cunts of player > 0):
+	if player is female:
 		choose a blank row in table of fucking options;
 		now title entry is "Ride Skarnoth's dick (vaginal)";
 		now sortorder entry is 4;
@@ -95,7 +88,7 @@ to say SkarnothSexMenu:
 	now sortorder entry is 5;
 	now description entry is "Let the demon fill your ass with his seed";
 	]
-	if (cocks of player > 0):
+	if player is male:
 		choose a blank row in table of fucking options;
 		now title entry is "Take Skarnoth's ass";
 		now sortorder entry is 6;
@@ -131,7 +124,7 @@ to say SkarnothSexMenu:
 				wait for any key;
 		else if calcnumber is 100:
 			say "Break off the conversation?";
-			if the player consents:
+			if player consents:
 				now sextablerun is 1;
 				say "     You step back from the chained demon, shaking your head slightly as he gives a questioning look.";
 				wait for any key;
@@ -145,7 +138,7 @@ to say SkarnothSex1: [player sucks him]
 	say "     Licking your lips at the sight of Skarnoth's large prick, standing straight up and with prominent veins throbbing along its length, you take a step forward towards the widely grinning demon. 'I knew you couldn't resist,' he says in a charming voice while his long tail snakes towards you, brushing your lower leg with the spaded tip and then wandering upwards as the appendage wraps around to draw you in. The orange glow in his eyes gets a little brighter as he dabs a clawed finger to the tip of his cock, wiping up the almost glowing droplet of pre-cum there. As you bump against the demonic male's muscular thighs and feel the heat radiating off his body, Skarnoth raises his hand to offer his pre. Almost without thinking, you find yourself hungrily licking it off his finger. He tastes spicy and hot, tingling a little on your tongue, and you find yourself craving more - so you take his finger into your mouth to suck even the last little bit off.";
 	say "     'Very good,' Skarnoth says and lets you suckle on his clawed digit for a short while, carefully stroking your tongue with its sharp point to give an enticing sensation of danger without actually hurting you. 'Why don't you go for more straight from the tap,' he adds after pulling out and stroking along the edge of your jaw, then nods down to his long, thick and throbbing manhood. There is more tasty pre welling up from his cum-slit right in that very moment, with a thin line of it already trickling down the shaft in an irresistible spectacle. Falling to your knees, you lean forward and run your tongue up the side of Skarnoth's erection, exploring its comfortably hot firmness with the tip. Soon, you reach the cockhead and slide your lips over it, sucking down hard to get another tasty treat.";
 	WaitLineBreak;
-	say "     'Eager, aren't you? I like that in my p- err, master.' Skarnoth says with a grin, then pushes on the back of your head to make you go lower. Not forcefully, but with a firm yet gentle touch, making your stretched lips sink further down on his pole. Soon, the mushroom head of his cock bumps the back of your throat, making you swallow reflexively, snorting and choking on his penis - but the demonic male doesn't even think about letting you pull off. His hands remain wrapped around your head, firmly holding you just where you are while he says, 'Come on, you can do better. Relax your throat a bit and allow me in. You know you want to.' With no way to go but forwards, you submit to the demon's intention of face-fucking you.";
+	say "     'Eager, aren't you? I like that in my p- err, master,' Skarnoth says with a grin, then pushes on the back of your head to make you go lower. Not forcefully, but with a firm yet gentle touch, making your stretched lips sink further down on his pole. Soon, the mushroom head of his cock bumps the back of your throat, making you swallow reflexively, snorting and choking on his penis - but the demonic male doesn't even think about letting you pull off. His hands remain wrapped around your head, firmly holding you just where you are while he says, 'Come on, you can do better. Relax your throat a bit and allow me in. You know you want to.' With no way to go but forwards, you submit to the demon's intention of face-fucking you.";
 	say "     Soon, the hot and throbbing spear of Skarnoth's erection pushes further into you, stretching your throat around its girth. 'Yeah, you're doing really nice,' he gives a throaty grunt as his balls slap against your chin - you've taken all of Skarnoth's cock! 'This is what mortals were made for, you know. Some religions have that all mixed up,' comes the next comment, followed by him grinding your nose deep into the bush of his bright red pubic hair. You can't help but huff his masculine aroma, which makes you go weak-kneed and tingly - oh no, wait... that's the lack of oxygen from having his cock blocking your airway. The demon pulls you off his erection a moment later, chuckling at the way you gasp for breath, then starts to face-fuck you in earnest, hilting himself in your throat in a fast-paced rhythm.";
 	WaitLineBreak;
 	say "     Skarnoth makes use of you for his own enjoyment, humping your mouth hard and almost without pause, which keeps you just a bit delirious but also somehow wanting for him to do it more. You don't know how long your breathtaking session takes, but at some point, the throbs of more pre come faster and faster while Skarnoth's grunts raise in urgency. Preparing yourself for his orgasm, you gulp down as he pulls out most of the way to cover your tongue with his load. The demon's cum is thick and creamy, even spicier than his pre and really quite hot, filling you with an inner warmth as you swallow it. More and more blasts of cum are blasted into your mouth and you do your best to eat it all, but after a little while, its hotness becomes a little bit of an issue - both in taste and temperature, as you start sweating and getting a red head, your eyes tearing up just a little.";
@@ -215,16 +208,16 @@ to say SkarnothSex6: [Skarnoth's ass fucked]
 
 Section 4 - Events
 
-instead of going northwest from Grey Abbey Library while (hp of Skarnoth > 1):
+instead of going northwest from Grey Abbey Library while (HP of Skarnoth > 1):
 	move player to Half-Renovated Room;
 	if debugactive is 1:
-		say "     DEBUG: SKARNOTH WALK-IN - HP OF SKARNOTH: [hp of Skarnoth], THIRST OF Skarnoth: [thirst of Skarnoth][line break]";
+		say "     DEBUG: SKARNOTH WALK-IN - HP OF SKARNOTH: [HP of Skarnoth], THIRST OF Skarnoth: [thirst of Skarnoth][line break]";
 	say "     .";
 
 Section 5 - Infection for combat purposes
 
 Table of random critters (continued)
-name	attack	defeated	victory	desc	face	body	skin	tail	cock	face change	body change	skin change	ass change	cock change	str	dex	sta	per	int	cha	sex	hp	lev	wdam	area	cocks	cock length	cock width	breasts	breast size	male breast size	cunts	cunt length	cunt width	libido	loot	lootchance	scale (number)	body descriptor (text)	type (text)	magic (truth state)	resbypass (truth state)	non-infectious (truth state)	nocturnal (truth state)	altcombat (text)
+name	attack	defeated	victory	desc	face	body	skin	tail	cock	face change	body change	skin change	ass change	cock change	str	dex	sta	per	int	cha	sex	HP	lev	wdam	area	cocks	cock length	cock width	breasts	breast size	male breast size	cunts	cunt length	cunt width	libido	loot	lootchance	scale (number)	body descriptor (text)	type (text)	magic (truth state)	resbypass (truth state)	non-infectious (truth state)	nocturnal (truth state)	altcombat (text)
 --	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--;
 
 When Play begins:
@@ -251,14 +244,14 @@ When Play begins:
 	now int entry is 12;
 	now cha entry is 22;
 	now sex entry is "Male";           [ Infection will move the player towards this gender. Current: 'Male' 'Female' 'Both' ]
-	now hp entry is 275;
+	now HP entry is 275;
 	now lev entry is 20;               [ Monster level. (Level x 2) XP for victory. (Level / 2) XP for losing. ]
 	now wdam entry is 35;              [ Monster's average damage when attacking. ]
 	now area entry is "nowhere";       [ "Outside" "Mall" "Park" "Beach" etc... Check an existing creature in the area. ]
 	now cocks entry is 1;              [ Number of cocks the infection will try to cause if sex entry is 'Male' or 'Both'. ]
 	now cock length entry is 16;       [ Length in inches infection will make cock grow to if cocks. ]
 	now cock width entry is 9;         [ Cock width, more commonly used for ball size. ]
-	now breasts entry is 2;            [ Number of breasts the infection will give a player. ]
+	now breasts entry is 2;            [ Number of nipples the infection will give a player. ]
 	now breast size entry is 0;        [ Size of breasts the infection will try to attain (corresponds to letter cup size). ]
 	now male breast size entry is 0;   [ Breast size for if Sex="Male", usually zero. ]
 	now cunts entry is 0;              [ The number of cunts the infection will try to cause if sex entry is 'Female' or 'Both'. ]

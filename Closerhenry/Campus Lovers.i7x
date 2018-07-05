@@ -4,11 +4,12 @@ Version 2 of Campus Lovers by Closerhenry begins here.
 [ CampusCoupleRelationship                                              ]
 [   0: Have not met Jadako and Coach Weber                              ]
 [   1: Have learned where the couple's room                             ]
-[   100: Permanantly locked out of the two.                             ]
+[   100: Permanently locked out of the two                              ]
 
 CampusLoversTrackingVariable is a number that varies.
 CampusLoversProgressTurn is a number that varies.
 CampusCoupleRelationship is a number that varies.
+
 Campus Lovers is a situation.
 The sarea of Campus Lovers is "Campus".
 
@@ -16,19 +17,11 @@ when play begins:
 	add Campus Lovers to badspots of guy;
 	add Campus Lovers to badspots of furry;
 
-instead of going north from College Campus Entrance while (Campus Lovers is not resolved and CampusLoversTrackingVariable is 1 and CampusLoversProgressTurn - turns > 3):
+instead of going to College Fountain while (Campus Lovers is not resolved and CampusLoversTrackingVariable is 1 and CampusLoversProgressTurn - turns > 3):
 	move player to College Fountain;
 	CampusLoversEvent;
 
-instead of going east from College Walkway Northwest while (Campus Lovers is not resolved and CampusLoversTrackingVariable is 1 and CampusLoversProgressTurn - turns > 3):
-	move player to College Fountain;
-	CampusLoversEvent;
-
-instead of going west from College Walkway Northeast while (Campus Lovers is not resolved and CampusLoversTrackingVariable is 1 and CampusLoversProgressTurn - turns > 3):
-	move player to College Fountain;
-	CampusLoversEvent;
-
-instead of going northeast from College Walkway East while (Campus Lovers is not resolved and CampusLoversTrackingVariable is 2 and CampusLoversProgressTurn - turns > 3):
+instead of going to Dorm Street while (Campus Lovers is not resolved and CampusLoversTrackingVariable is 2 and CampusLoversProgressTurn - turns > 3):
 	move player to Dorm Street;
 	CampusLoversEvent;
 
@@ -92,10 +85,10 @@ to CampusLoversEvent:
 		say "     ([link]N[as]n[end link]) - Scram. It's a private moment!";
 		if player consents:
 			LineBreak;
-			say "     You decide to continue watching. [if player is male]Your [cock of player] cock is twitching already from the little you've seen.[else if player is female]Your vagina feels moist just from the little you've seen.[else if player is herm]Your [cock of player] is at full mast, and your pussy is dripping from excitement just from the little you've seen.[else]You can't help but feel the craving for one of their cocks in your tight hole.[end if] Poking your head back around, Coach Weber continues to thrust into Jadako, his bulky muscular frame dwarfing the slim feline. His beefy hands are wrapped around the colorful cat-morph's sides, with his dulled claws only slightly digging into him. Jadako is rocked by every thrust, and his slim cock and compact balls shake with every new penetration. The cat's claws dig into the mattress as his head rocks around with his eyes half rolled into the back of his head.";
+			say "     You decide to continue watching. [if player is herm]Your [cock of player] cock is at full mast, and your pussy is dripping from excitement just from the little you've seen[else if player is male]Your [cock of player] cock is twitching already from the little you've seen[else if player is female]Your vagina feels moist just from the little you've seen[else]You can't help but feel the craving for one of their cocks in your tight hole[end if]. Poking your head back around, Coach Weber continues to thrust into Jadako, his bulky muscular frame dwarfing the slim feline. His beefy hands are wrapped around the colorful cat-morph's sides, with his dulled claws only slightly digging into him. Jadako is rocked by every thrust, and his slim cock and compact balls shake with every new penetration. The cat's claws dig into the mattress as his head rocks around with his eyes half rolled into the back of his head.";
 			say "     'You're such a good learner, Jadako... You've been doing your stretches, I can tell,' the coach praises with his gruff voice, each word after a thrust spoken with emphasis. 'I just want to make you proud, Coach... Oh, please, give it to me harder!' Jadako moans, his feline dick leaking pre. Coach Weber complies, his thrusts growing stronger and quicker. Both of their breathing grows heavier and heavier, signaling they're both coming close to climax. The lithe feline let's out a wanton moan, as his cock starts spraying cum all over himself. He grabs his dick with one of his hands and aims it, shooting as much as he can into his own mouth. The teen's display sets off the old dog, who slams his shaft into the cat-morph, locking his knot into place. He let's out a groan of pleasure, as his balls churn out as much seed as they can, enough to thoroughly paint the student's insides white.";
 			WaitLineBreak;
-			say "     Now seems like a perfect opportunity to leave, with the two knotted together. You turn to begin sneaking away, but in a horrible turn of luck, a heavy object hits you on the side of your head. Letting out a cry of surprise, you to realize it's just a football. 'Sorry, dude! Could you throw that back to me?' a faroff athlete yells to you. A grumble escapes your throat as you angrily throw the leather ball back. The athlete flashes you a thumbs up before running off. You turn your head back towards the window to the couple both looking toward you. The Coach is trying to avoid eye-contact with you, clearly embarassed, however Jadako has a wide smile as he waves to you as he grinds on his lover's knot. 'Hey there, did you enjoy the show?' he asks humerously. You rub the back of your head as you apologize for peeping but the feline shakes his head. 'Nah, it's fine. If you wanna see more like this, you could always stop by again. Maybe do a little more than watch next time...' he suggests flirtatiously. ";
+			say "     Now seems like a perfect opportunity to leave, with the two knotted together. You turn to begin sneaking away, but in a horrible turn of luck, a heavy object hits you on the side of your head. Letting out a cry of surprise, you to realize it's just a football. 'Sorry, dude! Could you throw that back to me?' a far off athlete yells to you. A grumble escapes your throat as you angrily throw the leather ball back. The athlete flashes you a thumbs up before running off. You turn your head back towards the window to the couple both looking toward you. The Coach is trying to avoid eye-contact with you, clearly embarrassed, however Jadako has a wide smile as he waves to you as he grinds on his lover's knot. 'Hey there, did you enjoy the show?' he asks humorously. You rub the back of your head as you apologize for peeping but the feline shakes his head. 'Nah, it's fine. If you wanna see more like this, you could always stop by again. Maybe do a little more than watch next time...' he suggests flirtatiously. ";
 			LineBreak;
 			say "     'As soon as you enter the dorms, it's the room to your north. Come on by, we'll be happy to entertain you...' the slutty feline states. Coach Weber begins to protest, but Jadako turns and silences him with a kiss. The two seem to forget, or at least disregard, your presence as they roll around on the bed hugging and making out. You leave the two to their business, wondering when you might stop by again.";
 			now Campus Lovers is resolved;

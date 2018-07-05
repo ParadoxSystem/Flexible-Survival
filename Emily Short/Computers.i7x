@@ -270,7 +270,7 @@ To say inbox of (chosen email - an email program):
 		say "The following messages are available for you to read or reply to:[line break]";
 		repeat through the message table of the chosen email:
 			if there is an arrival time entry:
-				say "[line break]";
+				LineBreak;
 				if the read entry is false:
 					say "[bold type]";
 				say "[arrival time entry]:";
@@ -911,7 +911,7 @@ We make the ATM a generic computer that can't be turned on or off. We create the
 		say "Your balance is [checking account balance]."
 
 	This is the quick-cash rule:
-		if checking account balance is less than $20.00:
+		if checking account balance < $20.00:
 			say "Insufficient funds!" instead;
 		decrease checking account balance by $20.00;
 		increase cash in hand by $20.00;

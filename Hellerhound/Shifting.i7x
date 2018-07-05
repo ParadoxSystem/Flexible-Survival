@@ -2,7 +2,7 @@ Shifting by Hellerhound begins here.
 
 Section 1 - Secure Area Situation
 
-Secure Area is a situation.  The level of Secure Area is 12.
+Secure Area is a situation. The level of Secure Area is 12.
 halodestroyed is a number that varies.
 
 instead of resolving a Secure Area:
@@ -11,11 +11,11 @@ instead of resolving a Secure Area:
 		say "     There is a large sign on the fence surrounding the facility which reads: [']Please be advised: This facility is now closed due to a lack of male content.[']";
 		now secure area is resolved;
 		continue the action;
-	if a random number between 5 and 20 is less than the perception of the player:
+	if a random number between 5 and 20 < the perception of the player:
 		say "     Oh my god. You realize that the doors are made of diamond. What needs that much protection?";
 	say "[line break][line break]";
 	say "Do you wish to get to the door?";
-	if the player consents:
+	if player consents:
 		let dragatorwon be 0;
 		let dragatordefeated be 0;
 		say "     You run towards the barriers, determined to get inside.";
@@ -24,9 +24,9 @@ instead of resolving a Secure Area:
 			if a random number between one and 35 < the strength of the player: [breaks halo]
 				now halodestroyed is 1;
 				say "     You slam the halo with all your might and feel it crumble beneath you, revealing the rest of the way.";
-				if waiterhater is 0, wait for any key; [skips waiting if it's not wanted]
+				WaitLineBreak;
 				say "     The shimmering dissipated, you look towards the guards at the door, and with a shock realize they are of the Gargoyle infection. You could turn back now, or maybe you want to challenge them?";
-				if the player consents:
+				if player consents:
 					say "You march froward, and they attack.";
 					now dragatorwon is 0;
 					challenge "Gargoyle";
@@ -45,7 +45,7 @@ instead of resolving a Secure Area:
 						say "     You shove your hands into the opening, cracking the stone while pulling the door with as much strength as your tired body can muster after all that.";
 						if a random number between 5 and 30 < the strength of the player:
 							say "     The door creaks open, and you walk into the dimly lit area.";
-							say "     There are glyphs and writings covering the wall, and some show people in various states of infection. Looking closer, you notice that the writings seem to denote that the nanites can be controlled, but it doesn't show how.  You will have to search elsewhere for more information.";
+							say "     There are glyphs and writings covering the wall, and some show people in various states of infection. Looking closer, you notice that the writings seem to denote that the nanites can be controlled, but it doesn't show how. You will have to search elsewhere for more information.";
 							increase the score by 500;
 							now shiftable is 1;
 							now Secure Area is resolved;
@@ -57,7 +57,7 @@ instead of resolving a Secure Area:
 				say "     The halo resists all your efforts to break through, and you are forced to be on your way.";
 		else:
 			say "     You trip and fall onto one of the barbed wire fences! Yow!";
-			decrease the hp of the player by 20;
+			decrease the HP of the player by 20;
 			say "     An odd tingling runs through you, and with jarring suddenness you are back on the street, looking away from the secure house.";
 	else:
 		say "     You wisely avoid what could only be more trouble than it is worth.";
@@ -78,11 +78,11 @@ carry out shifting:
 	if shiftable is 0 or shiftable is 1:
 		say "You do not know how to do that!";
 		stop the action;
-	if the humanity of the player < 50:
+	if the humanity of player < 50:
 		say "Your feral impulses prevent you from concentrating hard enough to change.";
 		stop the action;
 	[say "You sense becoming human would be nearly impossible after doing this. Do you wish to continue anyway?";
-	if the player consents:
+	if player consents:
 		say "";
 	else:
 		stop the action;]
@@ -157,45 +157,45 @@ To transform:
 			now bodytype of player is name entry;
 		if there is a nocturnal in row monster of the table of random critters:
 			if nocturnal entry is true:
-				now the daycycle of player is 2; [night-preferred]
+				now daycycle of player is 2; [night-preferred]
 			if nocturnal entry is false:
-				now the daycycle of player is 1; [day-preferred]
+				now daycycle of player is 1; [day-preferred]
 		else:
-			now the daycycle of player is 0; [standard]
+			now daycycle of player is 0; [standard]
 	follow the sex change rule;
 	follow the sex change rule;
 	if cockname of player is not name entry:
-		if cocks of player is greater than 0, say " Your groin [one of]tingles[or]goes flush[or]vibrates with odd pleasure[or]goes cold[or]feels oily[at random] as [cock change entry].";
+		if player is male, say " Your groin [one of]tingles[or]goes flush[or]vibrates with odd pleasure[or]goes cold[or]feels oily[at random] as [cock change entry].";
 		now cockname of player is name entry;
 		now cock of player is cock entry;
-	if strength of player is less than str entry:
+	if strength of player < str entry:
 		say "You feel your muscles swelling with [name entry] [one of]strength[or]physique[or]power[at random].";
 		increase strength of player by 1;
 		increase capacity of player by 5;
-	if Intelligence of player is less than Int entry:
+	if Intelligence of player < Int entry:
 		say "You feel your mind swelling with [name entry] [one of]Intelligence[or]wit[or]complexity[at random].";
 		increase Intelligence of player by 1;
-	if Dexterity of player is less than Dex entry:
+	if Dexterity of player < Dex entry:
 		say "You feel your hand eye coordination swelling with [name entry] [one of]Dexterity[or]physique[or]accuracy[at random].";
 		increase Dexterity of player by 1;
-	if Stamina of player is less than Sta entry:
+	if Stamina of player < Sta entry:
 		say "You feel your body toughening with [name entry] [one of]Stamina[or]physique[or]power[at random].";
 		increase Stamina of player by 1;
 		if remainder after dividing stamina of player by 2 is 0:
-			increase maxhp of player by level of player plus 1;
-	if Perception of player is less than Per entry:
+			increase maxHP of player by level of player plus 1;
+	if Perception of player < Per entry:
 		say "You feel your senses swelling with [name entry] [one of]Perception[or]aptitude[or]feral attention[at random].";
 		increase Perception of player by 1;
-	if Charisma of player is less than Cha entry:
+	if Charisma of player < Cha entry:
 		say "You feel your social sense swelling with [name entry] [one of]Charisma[or]natural charm[or]pheromones[at random].";
 		increase Charisma of player by 1;
-	if the libido of the player is less than libido entry:
+	if libido of player < libido entry:
 		say "You can't help but [one of]feel your thoughts drifting towards sex[or]notice that the attributes of [name entry] were very appealing[or]wonder if getting to know these creatures in the biblical sense would be all that bad[at random].";
-		now the libido of the player is the libido entry;
+		now libido of player is the libido entry;
 
 when play ends:
 	if shiftable is 2:
-		if the humanity of the player > 50:
+		if the humanity of player > 50:
 			say "Your knowledge of how to shift aids you when you decide to help the rescue, and as a reward for your help, the army decides to replace the nanites you had with a new kind that do not spread.";
 		else:
 			say "Your feral impulses prevent the concentration required for shifting, and the knowledge doesn't return until the rescue comes.";
@@ -205,7 +205,7 @@ when play ends:
 		now scalevalue of player is 3;
 		now bodydesc of player is "shapeshifting";
 		now bodytype of player is "shapeshifter";
-		now the daycycle of player is 0;
+		now daycycle of player is 0;
 		say "((Being a shapeshifter, your normal ending for your body type is suppressed))";
 
 Shifting ends here.

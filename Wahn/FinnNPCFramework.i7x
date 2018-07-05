@@ -1,4 +1,4 @@
-Version 1 of Finn by Wahn begins here.
+Version 1 of FinnNPCFramework by Wahn begins here.
 [Version 1 - Put into its own file]
 
 [ FinnTrackingProgress                                   ]
@@ -11,14 +11,14 @@ Version 1 of Finn by Wahn begins here.
 [  99: Finn's dead                                       ]
 [ 100: Finn joined the stables                           ]
 
-Finn is a man. The hp of Finn is usually 0.
+Finn is a man. The HP of Finn is usually 0.
 The description of Finn is "[FinnDesc]".
 The conversation of Finn is { "<This is nothing but a placeholder!>" }.
 The scent of Finn is "     Finn smells nicely masculine, with a little bit of fur, straw and sweat in the mix. Seems like he's not adverse to doing some good and solid work for his boss at the farm.".
 
 to say FinnDesc:
 	if debugactive is 1:
-		say "DEBUG -> FINNTRACKINGPROGRESS: [FinnTrackingProgress], HP: [hp of Finn] <- DEBUG[line break]";
+		say "DEBUG -> FINNTRACKINGPROGRESS: [FinnTrackingProgress], HP: [HP of Finn] <- DEBUG[line break]";
 	say "     <This is the basic description of Finn. Body, Clothing, etc. can be laid out here>";
 	if FinnTrackingProgress is 3: [Finn rescued, no sex]
 		say "     The horseman notices your gaze on himself and looks up from what he was doing, then <Reaction of Finn at being approached by the guy that rescued him.>";
@@ -52,7 +52,7 @@ to say FinnSexMenu:
 	now sextablerun is 0;
 	blank out the whole of table of fucking options;
 	[]
-	if cocks of player > 0: [only males and herms can get a blowjob]
+	if player is male: [only males and herms can get a blowjob]
 		choose a blank row in table of fucking options;
 		now title entry is "Get a blowjob";
 		now sortorder entry is 1;
@@ -63,19 +63,19 @@ to say FinnSexMenu:
 	now sortorder entry is 2;
 	now description entry is "Wrap your lips around the horseman's equine shaft";
 	[]
-	if cocks of player > 0 and FinnTrackingProgress is 3: [only males and herms can fuck him, virgin Finn]
+	if player is male and FinnTrackingProgress is 3: [only males and herms can fuck him, virgin Finn]
 		choose a blank row in table of fucking options;
 		now title entry is "Talk the handsome farmhand into giving up his virginity";
 		now sortorder entry is 3;
 		now description entry is "Take the horseman's ass for a ride";
 	[]
-	if cocks of player > 0 and FinnTrackingProgress > 3: [only males and herms can fuck him, also just for Finn who isn't a virgin]
+	if player is male and FinnTrackingProgress > 3: [only males and herms can fuck him, also just for Finn who isn't a virgin]
 		choose a blank row in table of fucking options;
 		now title entry is "Fuck the handsome farmhand's ass";
 		now sortorder entry is 4;
 		now description entry is "Take the horseman's ass for a ride";
 	[]
-	if cunts of player > 0: [only females and herms can take him in the pussy]
+	if player is female: [only females and herms can take him in the pussy]
 		choose a blank row in table of fucking options;
 		now title entry is "Take Finn's shaft in your pussy";
 		now sortorder entry is 5;
@@ -116,7 +116,7 @@ to say FinnSexMenu:
 				wait for any key;
 		else if calcnumber is 100:
 			say "Break off the conversation?";
-			if the player consents:
+			if player consents:
 				now sextablerun is 1;
 				say "     You step back from the horseman farmhand, shaking your head slightly as he gives a questioning look.";
 				wait for any key;
@@ -145,4 +145,4 @@ to say FinnSex6: [Finn fucks player ass]
 	say "     A";
 
 
-Finn ends here.
+FinnNPCFramework ends here.

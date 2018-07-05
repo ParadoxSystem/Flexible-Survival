@@ -36,14 +36,15 @@ carry out supersponsor:
 		say "[if sshh is true](9) Hard hat - Taken[else][link](9) Hard hat[as]9[end link] - Available[end if][line break]";
 		say "[if ssos is true](10) Orange shield - Taken[else][link](10) Orange shield[as]10[end link] - Available[end if][line break]";
 		say "[if sanitysave is 1][link](11) Sanity Saver - Taken[as]11[end link][else][link](11) Sanity Saver[as]11[end link] - Available[end if][line break]";
+		say "[link](12) Claim all the pets![as]12[end link][line break]";
 		say "[link](0) Abort[as]0[end link][line break]";
 		while 1 is 1:
-			say "Choice? (0-10)> ";
+			say "Choice? (0-12)> ";
 			get a number;
-			if calcnumber >= 0 and calcnumber <= 11:
+			if calcnumber >= 0 and calcnumber <= 12:
 				break;
 			else:
-				say "Invalid choice. Pick from 0 to 11.";
+				say "Invalid choice. Pick from 0 to 12.";
 		if calcnumber is 1:
 			sslvl12;
 		else if calcnumber is 2:
@@ -60,10 +61,10 @@ carry out supersponsor:
 			else:
 				say "     During your conversation with Trixie, the [companion of player] has been confused and concerned as you talk to apparently no one. Trixie waggles here fingers in their direction and they fall into a trance. A set of VR goggles and headphones are magicked onto their head and start to play. They absorb the information from the VR session, auto-magically training them in mere minutes. Once the training session is over, the equipment disappears and your companion comes out of their trance with increased skill.";
 				let nn be ( level of player - level of companion of player ) - 3;
-				let xpfactor be 5;
+				let XPfactor be 5;
 				if "Good Teacher" is listed in feats of player:
-					now xpfactor is 3;
-				increase xp of companion of player by ( ( level of companion of player * 2 ) + ( nn - 1 ) ) * nn * xpfactor;
+					now XPfactor is 3;
+				increase XP of companion of player by ( ( level of companion of player * 2 ) + ( nn - 1 ) ) * nn * XPfactor;
 				repeat with x running from 1 to nn:
 					pet level up;
 		else if calcnumber is 4:
@@ -157,7 +158,7 @@ carry out supersponsor:
 				say "     You've already received this reward.";
 		else if calcnumber is 10:
 			if ssos is false:
-				say "     When you say you need some protection if you're going back out there, Trixie points you towards the history section. Mounted on the wall in that disused corner of the library, you find a round shield of bronze mounted on the wall. It is emblazoned with a red-orange 'P' in a ring on its face. How did you never notice it there before now?  Taking it down, you find it quite real and in very good shape. The leather straps are solid and the shield itself seems strong enough to take a beating.";
+				say "     When you say you need some protection if you're going back out there, Trixie points you towards the history section. Mounted on the wall in that disused corner of the library, you find a round shield of bronze mounted on the wall. It is emblazoned with a red-orange 'P' in a ring on its face. How did you never notice it there before now? Taking it down, you find it quite real and in very good shape. The leather straps are solid and the shield itself seems strong enough to take a beating.";
 				now carried of orange shield is 1;
 				now ssos is true;
 			else:
@@ -169,6 +170,10 @@ carry out supersponsor:
 			else:
 				say "     You release the iron clad defense of your mind.";
 				remove "Sanity Saver" from feats of player;
+		else if calcnumber is 12:
+			repeat with petget running through pets:
+				now petget is tamed;
+			say "They are all now yours! (Warning, the code for some pets may react oddly. They are all set as battle-summonable though.)[line break]";
 		else:
 			now trixieexit is 1;
 		LineBreak;
@@ -182,10 +187,10 @@ to sslvl12:
 		if "Fast Learner" is listed in feats of player:
 			now val is 4;
 		say "[bold type]You feel empowered by your support of the game.[roman type][line break]";
-		now xp of player is val * 12 * 13;
-		[ say "XP set to [xp of player].";]
-		decrease xp of player by val * ( level of player ) * ( level of player + 1 );
-		[ say "XP decreased to [xp of player].";]
+		now XP of player is val * 12 * 13;
+		[ say "XP set to [XP of player].";]
+		decrease XP of player by val * ( level of player ) * ( level of player + 1 );
+		[ say "XP decreased to [XP of player].";]
 		now val is 12 - level of player;
 		[ say "Levelling up [value] times.";]
 		repeat with x running from 1 to val:
@@ -196,17 +201,17 @@ to sslvl12:
 Table of Game Objects (continued)
 name	desc	weight	object
 "dildo club"	"A big, bright purple dildo. It's about three feet long and has a handle on it for easy swinging."	5	dildo club
-"banana peel gun"	"A colourful toy gun made of plastic. But rather than fire foam darts or shoot water, it's able to launch banana peels without ever needing to be reloaded."	2	banana peel gun
+"banana peel gun"	"A colorful toy gun made of plastic. But rather than fire foam darts or shoot water, it's able to launch banana peels without ever needing to be reloaded."	2	banana peel gun
 "orange shield"	"A round shield made of burnished bronze with an red-orange 'P' emblem on it."	6	orange shield
 "hard hat"	"A yellow construction hard hat you've found to help protect your noggin."	2	hard hat
 
 [Dildo Club]
-dildo club is an armament. It is part of the player. It has a weapon "[one of]your phallic club[or]your purple latex club[or]your dildo club with a resounding 'Wubba-!Wubba-Wubba-Thwack!' sound[or]the three-foot purple schlong[or]the floppy dildo club[or]your oversized dildo[at random]". The weapon damage of dildo club is 6. The weapon type of dildo club is "Melee". It is not temporary. the objsize of dildo club is 4.
+dildo club is an armament. It is part of the player. It has a weapon "[one of]your phallic club[or]your purple latex club[or]your dildo club with a resounding 'Wubba-Wubba-Wubba-Thwack!' sound[or]the three-foot purple schlong[or]the floppy dildo club[or]your oversized dildo[at random]". The weapon damage of dildo club is 6. The weapon type of dildo club is "Melee". It is not temporary. the objsize of dildo club is 4.
 
 the scent of the dildo club is "The sex toy club smells of latex and your humiliated foes."
 
 [Banana Peel Gun]
-banana peel gun is an armament. It is part of the player. It has a weapon "[one of]your[or]the[purely at random] [one of]strange gun[or]colourful gun[or]plastic gun[or]odd toy gun[or]plantain pistol[or]banana blaster[or]banana peel gun[or]banana peel launcher[at random], [one of]striking your foe in the face[or]tripping up your foe with a messy peel[or]causing your foe to slide into something[or]making your foe stumble and twist themselves painfully[or]causing a comedic pratfall[at random][bananerred]". The weapon damage of banana peel gun is 4. It is not temporary. It is ranged. The objsize of banana peel gun is 3.
+banana peel gun is an armament. It is part of the player. It has a weapon "[one of]your[or]the[purely at random] [one of]strange gun[or]colorful gun[or]plastic gun[or]odd toy gun[or]plantain pistol[or]banana blaster[or]banana peel gun[or]banana peel launcher[at random], [one of]striking your foe in the face[or]tripping up your foe with a messy peel[or]causing your foe to slide into something[or]making your foe stumble and twist themselves painfully[or]causing a comedic pratfall[at random][bananerred]". The weapon damage of banana peel gun is 4. It is not temporary. It is ranged. The objsize of banana peel gun is 3.
 
 the scent of the banana peel gun is "The odd toy gun smells unsurprisingly like banana pudding. Unfortunately, none can be found inside."
 

@@ -49,7 +49,7 @@ Check researching:
 Carry out researching:
 	say "[description of noun]";
 	say "[line break]Begin?";
-	if the player consents:
+	if player consents:
 		now current of nerd is noun;
 		say "You begin researching [noun].";
 	else:
@@ -98,7 +98,7 @@ The nerd has a research called current.
 cur is a text that varies.
 
 Local Survey is a Research.
-The description of it is "Surveying our immediate surroundings will better prepare us for the unexpected(Perception +5%)".
+The description of it is "Surveying our immediate surroundings will better prepare us for the unexpected (Perception +5%)".
 The cost of it is 30.
 The completion of it is Local Survey Rule.
 
@@ -106,8 +106,8 @@ This is the local survey rule:
 	now perception of tribe of player is ( perception of tribe of player * 105 ) / 100;
 	say "The perception of your tribe is now [perception of tribe of player]";
 
-An everyturn rule(this is the SCIENCE rule):
-	if science of tribe of player is less than 1, continue the action; [ No research without research points ]
+An everyturn rule (this is the SCIENCE rule):
+	if science of tribe of player < 1, continue the action; [ No research without research points ]
 	if current of nerd is complete and current of nerd is not indefinite:
 		say "Your current research topic is complete. You should pick a new one.";
 		continue the action;
@@ -121,13 +121,13 @@ An everyturn rule(this is the SCIENCE rule):
 	now x is x * foragers * 2;
 	now x is x / 100;
 	let z be x;
-	if z is greater than science of tribe of player:
+	if z > science of tribe of player:
 		now z is the science of tribe of player;
-	if x is greater than 0: [ There is science to be done ]
-		if z is greater than 0:
+	if x > 0: [ There is science to be done ]
+		if z > 0:
 			say "Your science advances: +[z]";
 			increase progress of current of nerd by z;
-			if progress of current of nerd is greater than cost of current of nerd:
+			if progress of current of nerd > cost of current of nerd:
 				say ". [bold type][current of nerd][roman type] is complete!";
 				follow the completion of current of nerd;
 				if the perk of current of nerd is not "":
@@ -139,7 +139,7 @@ An everyturn rule(this is the SCIENCE rule):
 				now cost of current of nerd is cost of current of nerd * 2;
 				increase level of current of nerd by 1;
 		now x is x / 2;
-		if x is less than 1, now x is 1;
+		if x < 1, now x is 1;
 		increase science of tribe of player by x;
 
 

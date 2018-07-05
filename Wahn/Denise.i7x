@@ -3,6 +3,7 @@ Version 1 of Denise by Wahn begins here.
 Denise is a woman.
 The description of Denise is "[DeniseDesc]".
 The conversation of Denise is { "Mew!" }.
+The icon of Denise is Figure of BlueGryphon_icon;
 
 instead of sniffing Denise:
 	if the remainder after dividing libido of gryphoness by 4 is 0:
@@ -16,26 +17,27 @@ instead of sniffing Denise:
 
 to say DeniseDesc:
 	if debugactive is 1:
-		say "DEBUG -> HP: [hp of Gryphoness], LIBIDO: [libido of Gryphoness], DEXTERITY: [dexterity of Gryphoness] <- DEBUG[line break]";
+		say "DEBUG -> HP: [HP of Gryphoness], LIBIDO: [libido of Gryphoness], DEXTERITY: [dexterity of Gryphoness] <- DEBUG[line break]";
 	now tempnum is the remainder after dividing libido of gryphoness by 4;
 	let T be ( libido of gryphoness / 4 );
 	say "     Denise is a beautiful and striking example of the blue gryphons now living in this city. Being a creature out of legend, her form consists of wildly different parts - standing upright on the paw-feet of digitigrade legs, she has a long lion's tail and white-gold fur on her lower body and front up to the collarbone, with everything above bearing bright blue feathers. Her feathered, but otherwise human-like arms end in hands that bear dangerous talons, and the proud set of fully functional wings behind her back gives the gryphoness an imposing stature. Topping all of that is the avian head of a bird of prey, complete with feathers in many shades of blue and a sharp beak.";
 	say "     The sexual characteristics of the gryphoness are none less exceptional - and easily apparent, as she doesn't believe in wearing clothing anymore and seems to have lost all shyness of her former, human life. Thus, her well-sized breasts and hard nipples are in open view, as is the furry sheath between her legs that hides a knotted black cock. Further down, almost hidden below the hermaphrodite's sack and balls is her pussy, of which you catch enticing glimpses as Denise moves[if tempnum is 1]. She seems particularly pleased right now, having a kind of special glow to her fur and feathers[else if tempnum is 2]. She has a full, rounded belly from a growing pregnancy within her[else if tempnum is 3]. ERROR-Denise-3L: You should not be able to see Denise right now[end if][if T is 1]. Accompanying her for the moment is your gryphon child, a cute version of Denise in miniature[else if T >= 2]. Accompanying her for the moment is a pair of your gryphlets, cute versions of Denise in miniature[end if].";
 	LineBreak;
-	say "     After you helped her earlier, Denise is staying with you in the library now, happy in her new nest right next to the railing of the upper floor. It consists of two sofas pushed to form a triangle with the railing, and innumerable pillows thrown in the space in between. She must have looted quite a bit of the surrounding neighbourhood to get that many. Having a golden feline lower body that blends beautifully with her blue avian upper body, she usually whistles happily as she leans on the railing to watch things going on below or just lays back in her warm and soft refuge with a good book.";
+	say "     After you helped her earlier, Denise is staying with you in the library now, happy in her new nest right next to the railing of the upper floor. It consists of two sofas pushed to form a triangle with the railing, and innumerable pillows thrown in the space in between. She must have looted quite a bit of the surrounding neighborhood to get that many. Having a golden feline lower body that blends beautifully with her blue avian upper body, she usually whistles happily as she leans on the railing to watch things going on below or just lays back in her warm and soft refuge with a good book.";
 
 instead of conversing the Denise:
 	say "What do you want to talk with Denise about?";
+	project Figure of BlueGryphon_face_icon;
 	now sextablerun is 0;
 	blank out the whole of table of fucking options;
 	[]
-	if cocks of player > 0:
+	if player is male:
 		choose a blank row in table of fucking options;
 		now title entry is "Her human self";
 		now sortorder entry is 1;
 		now description entry is "Ask the gryphoness about her past";
 	[]
-	if cocks of player > 0:
+	if player is male:
 		choose a blank row in table of fucking options;
 		now title entry is "Being a gryphon";
 		now sortorder entry is 2;
@@ -64,7 +66,7 @@ instead of conversing the Denise:
 				WaitLineBreak;
 		else if calcnumber is 100:
 			say "Break off?";
-			if the player consents:
+			if player consents:
 				now sextablerun is 1;
 				say "     You step back from the gryphoness, shaking your head slightly as she gives a questioning look.";
 				WaitLineBreak;
@@ -100,19 +102,20 @@ to say DeniseTalk3:
 	say "     C";
 
 Instead of fucking the Denise:
-	if(lastfuck of Denise - turns < 2):
+	if (lastfuck of Denise - turns < 2):
 		say "     Denise puts a hand on your chest, giggling lightly as she says, 'Oh dear - you're just insatiable. I like it. Give me one moment to catch my breath, then I'm game for more fun.'";
 	else:
 		now sextablerun is 0;
+		project Figure of BlueGryphon_icon;
 		blank out the whole of table of fucking options;
 		[]
-		if cocks of player > 0:
+		if player is male:
 			choose a blank row in table of fucking options;
 			now title entry is "Get a blowjob from Denise";
 			now sortorder entry is 1;
 			now description entry is "Let the gryphoness suck you off";
 		[]
-		if cunts of player > 0:
+		if player is female:
 			choose a blank row in table of fucking options;
 			now title entry is "Let Denise lick your pussy";
 			now sortorder entry is 2;
@@ -128,13 +131,13 @@ Instead of fucking the Denise:
 		now sortorder entry is 4;
 		now description entry is "Go down on the gryphoness";
 		[]
-		if cocks of player > 0:
+		if player is male:
 			choose a blank row in table of fucking options;
 			now title entry is "Fuck Denise's pussy";
 			now sortorder entry is 5;
 			now description entry is "Pound your dick into the sexy gryphoness";
 		[]
-		if cunts of player > 0:
+		if player is female:
 			choose a blank row in table of fucking options;
 			now title entry is "Let Denise fuck your pussy";
 			now sortorder entry is 6;
@@ -172,7 +175,7 @@ Instead of fucking the Denise:
 					now lastfuck of Denise is turns;
 			else if calcnumber is 100:
 				say "Break off?";
-				if the player consents:
+				if player consents:
 					now sextablerun is 1;
 					say "     You step back from the lioness, shaking your head slightly as she gives a questioning look.";
 					WaitLineBreak;
@@ -208,35 +211,35 @@ to say DeniseSex4: [Denise eaten out by the player]
 
 to say DeniseSex5: [the player fucks Denise]
 	if bodyname of player is "Hermaphrodite Gryphon" or bodyname of player is "Feral Gryphon":
-		say "     Looking over at your increasingly lustful gryphon companion, you realize that she is staring back at you eagerly as well. You open your mouth to comment, only to have her shake her head slightly, before turning and dropping to all fours on the ground and looking back over her shoulder at you with a happy grin on her beak. The sight of her winking passage as her tail waves above her rear eagerly makes you pant in need as well, and glancing around you realize that it certainly wouldn[']t hurt anything to help your gryphon companion out with her own needs. Grinning eagerly, you quickly stalk over to her on your own leonine legs, your [cock of player] rod already ready and eager as you run your talons through the soft fur of her hips, making her shudder with desire. Reaching around her body, you pin her wings to her back as you lean over her, your taloned hands gripping her soft breasts eagerly as you rub your cock up against her damp pussy teasingly.";
-		say "     She moans underneath you as your dominant positioning enhances her already strong submissive instincts, her own cock growing stiff as she pants and moans incoherently. Deciding to reward her submission, you slowly sink your cock into her all too eager body, her pussy lips parting easily for you as she continues to moan helplessly, her lust-fogged mind obviously unable to form coherent sentences, or even coherent thought under your pleasurable assault on her body. Your pleasure growing not only from the wonderful sensations of her body engulfing and massaging your cock so eagerly, but with the dominant joy of reducing your companion to little more than a slutty little pet underneath you as well. You are hardly able to restrain your building pleasure as you thrust into her eager body, your hands teasing her breasts eagerly, each little moan of submission you draw out from the slutty gryphoness underneath you a victory all its own, as your pleasure builds higher and higher. Eventually you can[']t take it any more, and you are soon spilling your seed into her needy body, every pulse of your cock sending more and more of your dominant cum into her body to lay claim to her heat filled womb. Panting with exhaustion and a near overload of pleasure yourself, you pull out of her well-fucked body, Denise collapsing on the spot as she pants mindlessly for a while, even while you try to reclaim the shreds of your own scattered wits. Eventually you both manage to haul yourselves up to continue on exploring the city, although from the looks Denise keeps sending you, she seems more eager than ever to explore being your submissive little pet again soon...";
+		say "     Looking over at your increasingly lustful gryphon companion, you realize that she is staring back at you eagerly as well. You open your mouth to comment, only to have her shake her head slightly, before turning and dropping to all fours on the ground and looking back over her shoulder at you with a happy grin on her beak. The sight of her winking passage as her tail waves above her rear eagerly makes you pant in need as well, and glancing around you realize that it certainly wouldn't hurt anything to help your gryphon companion out with her own needs. Grinning eagerly, you quickly stalk over to her on your own leonine legs, your [cock of player] rod already ready and eager as you run your talons through the soft fur of her hips, making her shudder with desire. Reaching around her body, you pin her wings to her back as you lean over her, your taloned hands gripping her soft breasts eagerly as you rub your cock up against her damp pussy teasingly.";
+		say "     She moans underneath you as your dominant positioning enhances her already strong submissive instincts, her own cock growing stiff as she pants and moans incoherently. Deciding to reward her submission, you slowly sink your cock into her all too eager body, her pussy lips parting easily for you as she continues to moan helplessly, her lust-fogged mind obviously unable to form coherent sentences, or even coherent thought under your pleasurable assault on her body. Your pleasure growing not only from the wonderful sensations of her body engulfing and massaging your cock so eagerly, but with the dominant joy of reducing your companion to little more than a slutty little pet underneath you as well. You are hardly able to restrain your building pleasure as you thrust into her eager body, your hands teasing her breasts eagerly, each little moan of submission you draw out from the slutty gryphoness underneath you a victory all its own, as your pleasure builds higher and higher. Eventually you can't take it any more, and you are soon spilling your seed into her needy body, every pulse of your cock sending more and more of your dominant cum into her body to lay claim to her heat filled womb. Panting with exhaustion and a near overload of pleasure yourself, you pull out of her well-fucked body, Denise collapsing on the spot as she pants mindlessly for a while, even while you try to reclaim the shreds of your own scattered wits. Eventually you both manage to haul yourselves up to continue on exploring the city, although from the looks Denise keeps sending you, she seems more eager than ever to explore being your submissive little pet again soon...";
 		say "[deniseimpreg]";
 	else:
-		say "     Looking over at your increasingly lustful gryphon companion, you realize that she is staring back at you eagerly as well. You open your mouth to comment, only to have her shake her head slightly, before turning and dropping to all fours on the ground and looking back over her shoulder at you with a happy grin on her beak. The sight of her winking passage as her tail waves above her rear eagerly makes you pant in need as well, and glancing around you realize that it certainly wouldn[']t hurt anything to help your gryphon companion out with her own needs. Grinning eagerly, you quickly stalk over to her, your [cock of player] rod already ready and eager as you run your fingers through the soft fur of her hips, making her shudder with desire. Reaching around her body, you pin her wings to her back as you lean over her, your hands gripping her soft breasts eagerly as you rub your cock up against her damp pussy teasingly.";
-		say "     She moans underneath you as your dominant positioning enhances her already strong submissive instincts, her own cock growing stiff as she pants and moans incoherently. Deciding to reward her submission, you slowly sink your cock into her all too eager body, her pussy lips parting easily for you as she continues to moan helplessly, her lust-fogged mind obviously unable to form coherent sentences, or even coherent thought under your pleasurable assault on her body. Your pleasure growing not only from the wonderful sensations of her body engulfing and massaging your cock so eagerly, but with the dominant joy of reducing your companion to little more than a slutty little pet underneath you as well. You are hardly able to restrain your building pleasure as you thrust into her eager body, your hands teasing her breasts eagerly, each little moan of submission you draw out from the slutty gryphoness underneath you a victory all its own, as your pleasure builds higher and higher. Eventually you can[']t take it any more, and you are soon spilling your seed into her needy body, every pulse of your cock sending more and more of your dominant cum into her body to lay claim to her heat filled womb. Panting with exhaustion and a near overload of pleasure yourself, you pull out of her well-fucked body, Denise collapsing on the spot as she pants mindlessly for a while, even while you try to reclaim the shreds of your own scattered wits. Eventually you both manage to haul yourselves up to continue on exploring the city, although from the looks Denise keeps sending you, she seems more eager than ever to explore being your submissive little pet again soon...";
+		say "     Looking over at your increasingly lustful gryphon companion, you realize that she is staring back at you eagerly as well. You open your mouth to comment, only to have her shake her head slightly, before turning and dropping to all fours on the ground and looking back over her shoulder at you with a happy grin on her beak. The sight of her winking passage as her tail waves above her rear eagerly makes you pant in need as well, and glancing around you realize that it certainly wouldn't hurt anything to help your gryphon companion out with her own needs. Grinning eagerly, you quickly stalk over to her, your [cock of player] rod already ready and eager as you run your fingers through the soft fur of her hips, making her shudder with desire. Reaching around her body, you pin her wings to her back as you lean over her, your hands gripping her soft breasts eagerly as you rub your cock up against her damp pussy teasingly.";
+		say "     She moans underneath you as your dominant positioning enhances her already strong submissive instincts, her own cock growing stiff as she pants and moans incoherently. Deciding to reward her submission, you slowly sink your cock into her all too eager body, her pussy lips parting easily for you as she continues to moan helplessly, her lust-fogged mind obviously unable to form coherent sentences, or even coherent thought under your pleasurable assault on her body. Your pleasure growing not only from the wonderful sensations of her body engulfing and massaging your cock so eagerly, but with the dominant joy of reducing your companion to little more than a slutty little pet underneath you as well. You are hardly able to restrain your building pleasure as you thrust into her eager body, your hands teasing her breasts eagerly, each little moan of submission you draw out from the slutty gryphoness underneath you a victory all its own, as your pleasure builds higher and higher. Eventually you can't take it any more, and you are soon spilling your seed into her needy body, every pulse of your cock sending more and more of your dominant cum into her body to lay claim to her heat filled womb. Panting with exhaustion and a near overload of pleasure yourself, you pull out of her well-fucked body, Denise collapsing on the spot as she pants mindlessly for a while, even while you try to reclaim the shreds of your own scattered wits. Eventually you both manage to haul yourselves up to continue on exploring the city, although from the looks Denise keeps sending you, she seems more eager than ever to explore being your submissive little pet again soon...";
 		say "[deniseimpreg]";
 
 to say DeniseSex6:
 	if bodyname of player is "Hermaphrodite Gryphon" or bodyname of player is "Feral Gryphon":
 		say "     Moving over to Denise's nest, with every intention of getting fucked by her, you moan as you can feel your body heat up, and your pussy clench in need. Discarding clothes and gear as you go along, you're soon standing completely naked next to Denise's refuge. The presence of the virile gryphon herm nearby makes you feel incredibly horny and slutty as you rub your talons over your heat filled body. Denise notices your predicament almost immediately, and you can see her shared arousal as she comes over to you, running her tongue along the edges of her flexible beak. Though as tempting as having her lick you might be, your eyes are inevitably drawn to the thick gryphon cock poking out of the sheath between her leonine legs. Often more or less forgotten by the gryphoness, as she still has a female gender identity - no matter what her form. Still, the proud shaft is more than ready to be awoken by your taloned hand reaching out for it, then rubbing the half-hard shaft and cupping Denise's full balls.";
 		say "     It doesn't take much more than a that touch and a bit of groping, together with your need-filled scent, and your gryphon companion is ready to fuck someone, hard. The sudden flare-up of her masculine urges overwhelms Denise and on almost pure instinct, she reaches out, wasting no time in moving around you and softly pushing you down onto all fours. Realizing what she has in mind, you can feel yourself growing even wetter, then lift your rear up for her. The handsome gryphon herm gladly takes your eager invitation and she fills your needy body up with her wonderful rod, the feel of her cock splitting you open and making you cry out in pleasure. Soon you are panting and begging for her to breed you like an animal, your talons digging into the ground in pleasure with each thrust of her thick cock into your tight passage.";
-		say "     Panting and moaning just as eagerly as you are, it doesn[']t take long for the gryphon stud behind you to give you what your body so urgently needs, and you cry out in pleasure as Denise fills your heat filled womb with her seed. Eventually she softens and pulls out of your body, leaving you there kneeling on all fours on the ground with your head lowered as you try to recover your wits, something about the situation and your submissive positioning making you feel happy and content like a good little gryphon breeder should be...";
+		say "     Panting and moaning just as eagerly as you are, it doesn't take long for the gryphon stud behind you to give you what your body so urgently needs, and you cry out in pleasure as Denise fills your heat filled womb with her seed. Eventually she softens and pulls out of your body, leaving you there kneeling on all fours on the ground with your head lowered as you try to recover your wits, something about the situation and your submissive positioning making you feel happy and content like a good little gryphon breeder should be...";
 		say "     [ovichance]";
 	else:
 		say "     Moving over to Denise's nest, with every intention of getting fucked by her, you moan as you can feel your body heat up, and your pussy clench in need. Discarding clothes and gear as you go along, you're soon standing completely naked next to Denise's refuge. The presence of the virile gryphon herm nearby makes you feel incredibly horny and slutty as you rub your hands over your own naked body. Denise notices your predicament almost immediately, and you can see her shared arousal as she comes over to you, running her tongue along the edges of her flexible beak. Though as tempting as having her lick you might be, your eyes are inevitably drawn to the thick gryphon cock poking out of the sheath between her leonine legs. Often more or less forgotten by the gryphoness, as she still has a female gender identity - no matter what her form. Still, the proud shaft is more than ready to be awoken by your hand reaching out for it, then rubbing the half-hard shaft and cupping Denise's full balls.";
 		say "     It doesn't take much more than a that touch and a bit of groping, together with your need-filled scent, and your gryphon companion is ready to fuck someone, hard. The sudden flare-up of her masculine urges overwhelms Denise and on almost pure instinct, she reaches out, wasting no time in moving around you and softly pushing you down onto all fours. Realizing what she has in mind, you can feel yourself growing even wetter, then lift your rear up for her. The handsome gryphon herm gladly takes your eager invitation and she fills your needy body up with her wonderful rod, the feel of her cock splitting you open and making you cry out in pleasure. Soon you are panting and begging for her to breed you like an animal, your fingers trying to hold on to the floor with each thrust of her thick cock into your tight passage.";
-		say "     Panting and moaning just as eagerly as you are, it doesn[']t take long for the gryphon stud behind you to give you what your body so urgently needs, and you cry out in pleasure as Denise fills your heat filled womb with her seed. Eventually she softens and pulls out of your body, leaving you there kneeling on all fours on the ground with your head lowered as you try to recover your wits, something about the situation and your submissive positioning making you feel happy and content like a good little breeding bitch for a proud gryphon should be...";
+		say "     Panting and moaning just as eagerly as you are, it doesn't take long for the gryphon stud behind you to give you what your body so urgently needs, and you cry out in pleasure as Denise fills your heat filled womb with her seed. Eventually she softens and pulls out of your body, leaving you there kneeling on all fours on the ground with your head lowered as you try to recover your wits, something about the situation and your submissive positioning making you feel happy and content like a good little breeding bitch for a proud gryphon should be...";
 		say "     [ovichance]";
 
-instead of going up from Grey Abbey Library while (Denise is in Grey Abbey 2F and lust of gryphoness > 0 and lust of gryphoness < 16 and knowpreg of gryphoness is 0):
-	move player to Grey Abbey 2F;
+instead of going up from Grey Abbey Library while (Denise is in Garden View and lust of gryphoness > 0 and lust of gryphoness < 16 and knowpreg of gryphoness is 0):
+	move player to Garden View;
 	if debugactive is 1:
 		say "     DEBUG: DENISE PREGNANCY SPOTTING [line break]";
 	say "     As you come up the stairs, you look over at Denise and notice that her belly's starting to swell rounder. She smiles happily at you, running her paws over her growing pregnancy. It seems you successfully knocked her up recently.";
 	now knowpreg of gryphoness is 1;
 
-instead of going up from Grey Abbey Library while (Denise is in Grey Abbey 2F and the remainder after dividing libido of gryphoness by 4 is 3): [Denise is present and had a birth with the player being absent]
-	move player to Grey Abbey 2F;
+instead of going up from Grey Abbey Library while (Denise is in Garden View and the remainder after dividing libido of gryphoness by 4 is 3): [Denise is present and had a birth with the player being absent]
+	move player to Garden View;
 	if debugactive is 1:
 		say "     DEBUG: DENISE POST-BIRTH WALKIN [line break]";
 	now tempnum is the remainder after dividing libido of gryphoness by 4;

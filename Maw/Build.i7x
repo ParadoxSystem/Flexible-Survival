@@ -13,7 +13,7 @@ carry out builds:
 	say "Available Designs: [no line break]";
 	repeat with x running through valid construct:
 		if x is complete, next;
-		say "[line break]";
+		LineBreak;
 		say "[x]([progress of x]/[cost of x])[if building of blueprints is x](building construction)[end if][no line break]";
 	say "To begin a new build, type [bold type]build (building) at (direction)[roman type].";
 
@@ -32,7 +32,7 @@ Check constructing:
 Carry out constructing:
 	say "[description of noun]";
 	say "[line break]Construct?";
-	if the player consents:
+	if player consents:
 		now building of blueprints is noun;
 		now origin of blueprints is location of player;
 		now facing of blueprints is second noun;
@@ -76,7 +76,7 @@ A print has a construct called building.
 A print has a room called origin.
 A print has a direction called facing.
 A print can be started.
-blueprints is a print. "A large sheet of dark-blue paper with thin, light blue lining upon the broad face of it. With a little ingenuity one could consider this a invaluable tool to [bold type]plan[roman type] buildings.".
+blueprints is a print. "A large sheet of dark-blue paper with thin, light blue lining upon the broad face of it. With a little ingenuity one could consider this an invaluable tool to [bold type]plan[roman type] buildings.".
 blueprints is in Village center.
 
 After examining the blueprints:
@@ -118,7 +118,7 @@ This is the ranchcheck rule:
 Section - Agricultural Zone
 
 Agricultural Zone is a Construct.
-The description of it is "A massive, flat area filled with rows upon rows of[one of] wheat[or] corn[or] tomato stalks[or] apple trees[or] grape vines[or] marijuana.[sticky random] You feel at peace here, the wildlife of the area unperterbed and singing happily. The rustic look quite an eyesore for the city-folk. (Increases farmers' efficency by offering organized plot of farmland (No effect on hunters))".
+The description of it is "A massive, flat area filled with rows upon rows of [one of]wheat[or]corn[or]tomato stalks[or]apple trees[or]grape vines[or]marijuana[sticky random]. You feel at peace here, the wildlife of the area unperterbed and singing happily. The rustic look quite an eyesore for the city-folk. (Increases farmers' efficency by offering organized plot of farmland (No effect on hunters))".
 The cost of it is 60.
 The validation of agricultural zone is agricheck rule.
 The proximity of it is "You smell tilled earth to the";
@@ -168,7 +168,7 @@ The proximity of it is "You can smell someone's dinner coming from the".
 
 Book - Building!
 
-An everyturn rule(this is the Can We Build It rule):
+An everyturn rule (this is the Can We Build It rule):
 	if blueprints is not started, continue the action;
 	let z be the number of valid not placed constructs;
 	if z is 0, continue the action;
@@ -184,8 +184,8 @@ An everyturn rule(this is the Can We Build It rule):
 	if "Deft" is listed in perks of tribe of player:
 		increase x by 20;
 	now x is ( x * foragers ) / 100;
-	if x is greater than 0: [ There is building to be done ]
-		if x is less than 1, now x is 1;
+	if x > 0: [ There is building to be done ]
+		if x < 1, now x is 1;
 		say "Your construction advances: +[x]";
 		increase progress of building of blueprints by x;
 		if building of blueprints is complete:

@@ -6,7 +6,7 @@ When play begins:
 
 Book - Dem Blues
 
-blueprints is a object. "A large sheet of dark-blue paper with thin, light blue lining upon the broad face of it. With a little ingenuity one could consider this a invaluable tool for [bold type]building[roman type]".
+blueprints is a object. "A large sheet of dark-blue paper with thin, light blue lining upon the broad face of it. With a little ingenuity one could consider this an invaluable tool for [bold type]building[roman type]".
 blueprints is in Village center.
 
 After examining the blueprints:
@@ -27,7 +27,7 @@ carry out researchlist:
 	say "Available Designs: [no line break]";
 	repeat with x running through valid construct:
 		if x is complete, next;
-		say "[line break]";
+		LineBreak;
 		say "[x]([progress of x]/[cost of x])[if current2 of blueprints is x](Current construction)[end if][no line break]";
 	say "To begin a new build, type [bold type]build (building) at (direction)[roman type].";
 
@@ -42,7 +42,7 @@ Check constructing:
 Carry out constructing:
 	say "[description of noun]";
 	say "[line break]Construct?";
-	if the player consents:
+	if player consents:
 		now current2 of blueprints is noun;
 		now lolcation is second noun;
 		say "Your builders begin constructing [noun] in the [second noun].";
@@ -87,7 +87,7 @@ The blueprint has a Construct called current2.
 cur is a text that varies.
 
 Agricultural Zone is a Construct.
-The description of it is "A massive, flat area filled with rows upon rows of[one of] wheat[or] corn[or] tomato stalks[or] apple trees[or] grape vines[or] marijuana.[sticky random] You feel at peace here, the wildlife of the area unperterbed and singing happily. The rustic look quite an eyesore for the city-folk. (Increases farmers' efficency by offering organized plot of farmland (No effect on hunters))".
+The description of it is "A massive, flat area filled with rows upon rows of [one of]wheat[or]corn[or]tomato stalks[or]apple trees[or]grape vines[or]marijuana[sticky random]. You feel at peace here, the wildlife of the area unperterbed and singing happily. The rustic look quite an eyesore for the city-folk. (Increases farmers' efficency by offering organized plot of farmland (No effect on hunters))".
 The cost of it is 60.
 The completion of it is Agricultural Zone.
 	if the value of direction is east;

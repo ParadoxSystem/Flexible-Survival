@@ -13,8 +13,8 @@ when play begins:
 	add Goblin Trap to badspots of guy;
 
 Instead of resolving a Goblin Trap:
-	say "     As you are travelling along, looking over the various junk piles as you go, you inadvertently set off a hidden trap. A snare closes around your ankles and pulls your feet out from under you as you hear a heavy weight strike the ground nearby, pulling the rope. This also sets off a spring trap which sends a cluster of machine parts at you, aimed to land at your location. Battered by the volley of junk, you try to extricate yourself from the snare as a giggling goblin scrambles out from his hidey-hole in the junkpile after you set off his trap. 'Hee hee! It worked! It worked! And now to claim my prize,' he cackles as he comes at you as you get your legs free. You have taken 12 damage.";
-	decrease hp of player by 12;
+	say "     As you are traveling along, looking over the various junk piles as you go, you inadvertently set off a hidden trap. A snare closes around your ankles and pulls your feet out from under you as you hear a heavy weight strike the ground nearby, pulling the rope. This also sets off a spring trap which sends a cluster of machine parts at you, aimed to land at your location. Battered by the volley of junk, you try to extricate yourself from the snare as a giggling goblin scrambles out from his hidey-hole in the junkpile after you set off his trap. 'Hee hee! It worked! It worked! And now to claim my prize,' he cackles as he comes at you as you get your legs free. You have taken 12 damage.";
+	decrease HP of player by 12;
 	now goblinfight is 3;
 	challenge "Goblin";
 	if goblinfight is 1:
@@ -43,7 +43,7 @@ Instead of resolving a Raiding Party:
 	LineBreak;
 	say "     ([link]Y[as]y[end link]) - Stay.";
 	say "     ([link]N[as]n[end link]) - Flee.";
-	if the player consents:
+	if player consents:
 		LineBreak;
 		say "     Without anywhere worthwhile to hide and watch, you stay in the middle of the path and try to look intimidating. A few seconds later, some goblins come into view dragging something as they laugh cruelly to one another. The trio stops as they notice you just as their burden comes into view. Trapped in a net behind them is a tigress woman dressed in a skimpy outfit with mussed hair. She is largely insensate right now, probably struck by one of the goblins when she started making noise. With you barring their path, the goblin charges to defend their prize.";
 		now goblinfight is 3;
@@ -57,7 +57,7 @@ Instead of resolving a Raiding Party:
 				if goblinfight is 1:
 					say "     With the last goblin fled, you move over to check on the tigress woman. Using the fight as a distraction, she managed to bite through some of the ropes and pulls herself free as you come up. As she stands, you get a better look at her. She is wearing a short, red top and an even shorter, black skirt. This lets you see the soft orange tiger fur that covers her attractive body, rich with black stripes. She has snowy, white fur that covers her bosom and the front of her shapely waist. As she brushes her red hair back into order, you catch sight of the gold earrings in her feline ears and bracelets on her wrists. She growls as she stomps down hard onto the net launcher, smashing it with her feline paw before sending it flying off into the scrapyard.";
 					say "     Looking at you, she grins and runs her paws over her body. 'Well, sweety, that was mighty nice of you. How about I give you a little reward for your help?' she purrs, motioning to a discarded mattress at the edge of a nearby pile. From the looks of it, it's been used a few times before. As her paws run over her skirt, you can see the bulge there of her poorly concealed maleness. 'No charge this time, sweety,' the feline whore adds, running hir paws over your chest. 'I can show you a real good time. Anything you like,' shi rumbles with a grin, rubbing hir breasts and sheath against you. Shall you accept hir tempting offer?";
-					if the player consents:
+					if player consents:
 						now junknum is 1;
 						[puts Tigress Hooker as lead monster in case of impregnation]
 						repeat with y running from 1 to number of filled rows in table of random critters:
@@ -67,7 +67,7 @@ Instead of resolving a Raiding Party:
 								break;
 						say "[losetotigress]";
 						now junknum is 0;
-						say "     Your romp with the feline over, shi gives gives you one last kiss before telling you shi needs to get back to work. Shi points off towards the seedier part of town and tells you of a route leading you there, should you want to find hir and hir sisters for more fun.";
+						say "     Your romp with the feline over, shi gives you one last kiss before telling you shi needs to get back to work. Shi points off towards the seedier part of town and tells you of a route leading you there, should you want to find hir and hir sisters for more fun.";
 						now Entrance to the Red Light District is known;
 						increase score by 10;
 					else:
@@ -104,11 +104,11 @@ when play begins:
 
 Instead of resolving a Scattered Trash:
 	say "     You come across a mess of garbage scattered here, sprawling across the path between the junk mounds here. From the looks of it, it seems this stuff has been rummaged through and possibly even rolled around in. As it is just tossed around, there are clear spots to walk while you move through it. You decide to keep your eyes open in case you spot anything of interest while making your way through the trash.";
-	if waiterhater is 0, wait for any key; [skips waiting if it's not wanted]
+	WaitLineBreak;
 	let bonus be (( perception of player + dexterity of player minus 20 ) divided by 2 );
 	let dice be a random number from 1 to 20;
 	say "You roll 1d20([dice])+[bonus]: [dice + bonus]: ";
-	if bonus + dice is greater than 15:
+	if bonus + dice > 15:
 		say "     You manage to spot a sticky mess as you're stepping around through the trash. It's hard to tell over the scent of the surrounding garbage, but it's clearly the sexual fluids from some kind of creature. Finishing picking around the trash, you do manage to find a container of water. The small jug has enough for a drink of water, but it seems to have been filled after the outbreak and is probably not clean.";
 		increase carried of dirty water by 1;
 		increase score by 1;
@@ -143,11 +143,11 @@ Instead of resolving a Stray Cat:
 		LineBreak;
 		say "     ([link]Y[as]y[end link]) - Yes.";
 		say "     ([link]N[as]n[end link]) - No.";
-		if the player consents:
+		if player consents:
 			LineBreak;
 			if dirty water is owned and water bottle is owned:
 				say "     You have both dirty water and fresh water. Which will you give him? (Y=dirty, N=fresh)";
-				if the player consents:
+				if player consents:
 					say "[dirtysnow]";
 				else:
 					say "[bottlesnow]";

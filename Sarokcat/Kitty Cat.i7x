@@ -20,7 +20,7 @@ The sarea of Lost house cat is "Outside".
 
 Instead of resolving Lost house cat:
 	say "Heading through the streets of the city you spy a small form dart down an alleyway ahead of you, the shape moving too quickly for you to get anything more than an impression of four legs and fur. Curious, you pause for a minute, trying to decide whether you should investigate the shape further.";
-	If player consents:
+	if player consents:
 		say "Looking down the alleyway you don't see anything out of the usual at first, though the alley provides plenty of places for something to hide if it was small enough. Searching carefully down the alley, you are about to give up looking when you notice a small cardboard box trembling slightly as you pass close to it. Kneeling down and approaching the shaking box cautiously, you slowly lift the edge of the box up and look underneath it, only to be hissed at by a small cat, before it darts out from under the box and behind a nearby dumpster, its feline eyes shining out at you warily from the darkened space. You realize that the small cat seems to have been given a large enough scare recently that it is still terribly frightened. If you want it to calm down, perhaps you should offer it something cats like?";
 		blank out the whole of table of itemselection;
 		repeat with Q running through owned milky grab objects:
@@ -30,7 +30,7 @@ Instead of resolving Lost house cat:
 			now objname entry is printed name of Q;
 		if there is an object in row 1 of table of itemselection:
 			say "Do you give the cat some milk?";
-			if the player consents:
+			if player consents:
 				let chosenmilk be pocketknife;
 				if the number of filled rows in table of itemselection is 1:
 					choose row 1 in table of itemselection;
@@ -56,7 +56,7 @@ Instead of resolving Lost house cat:
 					say "Having finished the milk, the cat looks up at you as if to see if you have any more, moving a bit closer as it does so. You cautiously extend your hand to it, which it thoroughly sniffs with its soft nose before sneezing. Apparently reaching some decision about you, the cat then walks right up to where you are sitting and begins rubbing itself against your legs. You begin stroking its fur as it does, managing to get the worst of the dirt and grime off of it before it gets tired of being petted and begins to examine your pack for signs of more milk. Stretching as you sit up, you are surprised when you look around and realize how much time has passed while you took care of the little cat. Deciding you should be heading back, you realize after a few steps that you seem to have a feline following you, but after thinking about it a second, you realize that the little cat probably wouldn't last much longer out here on the streets alone. You let the little house cat follow you all the way back to the library.";
 					delete chosenmilk;
 					now house cat is tamed;
-					say "(The house cat is now tamed! You can make it your active pet by typing [bold type][link]pet house cat[end link][roman type]. You can see all the pets you have tamed with the [bold type][link]pet[end link][roman type] command. Pets will lower the xp you gain from battle, but can gain levels themselves to be more useful in a scrap. Want to get rid of a pet? Use [bold type][link]pet dismiss[end link][roman type], or just [bold type][link]dismiss[end link][roman type])";
+					say "(The house cat is now tamed! You can make it your active pet by typing [bold type][link]pet house cat[end link][roman type]. You can see all the pets you have tamed with the [bold type][link]pet[end link][roman type] command. Pets will lower the XP you gain from battle, but can gain levels themselves to be more useful in a scrap. Want to get rid of a pet? Use [bold type][link]pet dismiss[end link][roman type], or just [bold type][link]dismiss[end link][roman type])";
 					now Lost house cat is resolved;
 				else:
 					say "Looking over your supplies, you decide you'd rather not part with the collected milk in the end. Wanting to keep your hard-earned supplies, you decide the cat will just have to fend for itself.";
@@ -73,7 +73,7 @@ Instead of resolving Lost house cat:
 
 when play ends:
 	if house cat is tamed:
-		if humanity of player is less than 10:
+		if humanity of player < 10:
 			say "The house cat stays with you even after you surrender fully to the infection, its body seeming almost to become slightly more human-like as yours becomes more feral. While life near you is definitely still dangerous and rough, the little cat almost seems to thrive on the challenge and excitement this presents it. And even though the little cat teases and mocks you occasionally as cats tend to do, you retain enough of your old fondness for the little creature that you allow it its liberties.";
 		else:
 			say "Back in the outside world, the cat you found in that strange city seems to enjoy following you around and proves to be a nice companion to have around when he isn't wandering the streets at night with other cats. He seems mostly unaffected by the nanites that infested the city, although you swear he seems much smarter than normal cats, and you even think you have seen him using keys and manipulating objects with his paws on occasion. At one point he seems to take a strong fancy to one of your nearby neighbors, as she lavishes him with attention every time she gets a chance it is obvious she returns his affections. About a month or so later after a long night out your little house cat brings home a finely marked lady cat, and under the influence of his stare you take her in to care for as well. A few days later you find that the neighbor your cat was so fond of seems to have gone missing entirely, though there are signs that a few cats got into her apartment recently. Your little house cat stares at you innocently as you look at him and his fine new lady suspiciously, realizing the new cat was surprisingly comfortable with you and knew the layout of your place immediately. Still with no proof one way or another, you take care of your little cat and his obviously freshly-pregnant lady friend. Though you find yourself wondering sometimes just what gifts the nanite-laced city left your cat, as well as just what all he does wandering about the streets at night that he always seems so smug in the morning... you have seen more cats around lately. Mostly though, you find yourself wondering what you are going to be doing with his impending kittens, and if they will inherit whatever abilities he has gained...";

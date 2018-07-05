@@ -53,7 +53,7 @@ Chapter - Configuration
 
 When play begins:
 	if glulx graphics is supported:
-		now the current zoom is map zoomed in;[refers to Automap's zoom, which must always be set to zoomed in.]
+		now the current zoom is map zoomed in; [refers to Automap's zoom, which must always be set to zoomed in.]
 		if the current zoom level of the map-renderer is 0:
 			now the current zoom level of the map-renderer is the initial zoom level of the associated tileset of the map-renderer;
 		if the map viewport is not a map-display window:
@@ -203,7 +203,7 @@ For scaling a map-display window (called the viewport) (this is the resize canva
 	#end if;
 	reserve automap memory of y-win to the nearest whole number rows by x-win to the nearest whole number columns;
 	if the map is drawn and the current zoom is not map absent:
-		do nothing;[Automap's map is drawn by the phrase "if the map is drawn"; hence this odd instruction.]
+		do nothing; [Automap's map is drawn by the phrase "if the map is drawn"; hence this odd instruction.]
 	now the map-width of the map-renderer is (map width * tile-width of associated tileset of the map-renderer);
 	now the map-height of the map-renderer is (map height * tile-height of associated tileset of the map-renderer);
 	now the canvas-width of the associated canvas of the viewport is map-width of the map-renderer;
@@ -322,7 +322,7 @@ A clicking graphlink rule when the current graphlink window is a map-display win
 					#if utilizing Glimmr debugging;
 					say "[>console][GLAM]Mouse input received on graphlink '[current graphlink]' in window [italic type][current graphlink window][roman type]: ([current graphlink x], [current graphlink y]). Automap graphlink rules triggered for room [i][glulx equivalent of alt entry][/i].[<]";
 					#end if;
-					follow the automap graphlink rules for the glulx equivalent of alt entry;[the glulx equivalent is a type-casting routine. It returns a room.]
+					follow the automap graphlink rules for the glulx equivalent of alt entry; [the glulx equivalent is a type-casting routine. It returns a room.]
 				else:
 					#if utilizing Glimmr debugging;
 					say "[>console][GLAM]Mouse input received on graphlink '[current graphlink]' in window [italic type][current graphlink window][roman type]: ([current graphlink x], [current graphlink y]). Automap graphlink rules triggered.[<]";
@@ -353,7 +353,7 @@ The automap graphlink rules have outcomes exit (success - the default) and conti
 
 The current map label is a g-element variable.
 
-[The following phrase is defined in Mark Tilford's Automap. but in a section that only compiles when we're using Basic Hyperlinks. Basic Hyperlinks is not recommended for use with Flexible Windows, however, so we repeat the phrase here.]
+[The following phrase is defined in Mark Tilford's Automap, but in a section that only compiles when we're using Basic Hyperlinks. Basic Hyperlinks is not recommended for use with Flexible Windows, however, so we repeat the phrase here.]
 To decide what room is the glulx equivalent of (n - a number):
 	(- {n} -)
 
@@ -570,7 +570,7 @@ Carry out dumping automap data:
 	repeat with count running from 1 to (map width * map height):
 		increase scan by 1;
 		if scan > map width:
-			say "[line break]";
+			LineBreak;
 			let scan be 1;
 		if map glyph of count is 32:
 			say "... ";
@@ -582,7 +582,7 @@ Carry out dumping automap data:
 			say "[map glyph of count] ";
 	say "[variable letter spacing][line break]".
 
-Dumping automap links is an action out of world applying to nothing. Understand "automap link/links dump" or "dump links" or "dump map links"or "dump automap links" as dumping automap links. Understand "map link dump" as dumping automap links when glulx graphics is supported.
+Dumping automap links is an action out of world applying to nothing. Understand "automap link/links dump" or "dump links" or "dump map links" or "dump automap links" as dumping automap links. Understand "map link dump" as dumping automap links when glulx graphics is supported.
 
 Carry out dumping automap links:
 	say "Map measures [map width] by [map height], totalling [map height * map width] tiles.[line break]Window measures [width of the assigned window of the map-renderer] x [height of the assigned window of the map-renderer] px.[line break]Scaled tile measures [tile-width of associated tileset of the map-renderer * arbitrary scaling factor of the assigned window of the map-renderer] x [tile-height of associated tileset of the map-renderer * arbitrary scaling factor of the assigned window of the map-renderer] px.[line break]Canvas measures [canvas-width of the associated canvas of the map-renderer] x [canvas-height of the associated canvas of the map-renderer] canvas units.";
@@ -591,7 +591,7 @@ Carry out dumping automap links:
 	repeat with count running from 1 to (map width * map height):
 		increase scan by 1;
 		if scan > map width:
-			say "[line break]";
+			LineBreak;
 			let scan be 1;
 		if linked room-ID of count is 0:
 			say ".. ";
@@ -1053,7 +1053,7 @@ The Automap extension can dynamically change the maximum size of its map array, 
 
 It is therefore important that we set the automap reserved area to a number that is high enough for our map to display as we want it to. GLAM calculates the dimensions by determining the number of tiles that would in the graphics window at the current zoom level. If GLAM calculates that the window would hold 45 horizontally and 24 tiles vertically, then the total number of tiles would be 45 x 24 = 1080. The default value set by Glimmr Automap is rather arbitrary (3200), but probably adequate to most purposes. We can in any case set the value higher if we like:
 
-	*:  Use automap reserved area of at least 3400.
+	*: Use automap reserved area of at least 3400.
 
 If for some reason we need to make the automap reserved area less than 3200, we need to replace the section titled "Section - Maximum map size use option". If we want to make it less than 400, we need to edit the Automap extension directly. (We can make the *map*--as opposed to the memory reserved for it--smaller by setting maximum dimensions; see below.)
 
@@ -1213,9 +1213,9 @@ Section: Contact info
 
 If you have comments about the extension, please feel free to contact me directly at ek.temple@gmail.com.
 
-Please report bugs on the Google Code project page, at http://code.google.com/p/glimmr-i7x/issues/list.
+Please report bugs on the Google Code project page, at https://code.google.com/archive/p/glimmr-i7x/issues.
 
-For questions about Glimmr, please consider posting to either the rec.arts.int-fiction newsgroup or at the infiction forum (http://www.intfiction.org/forum/). This allows questions to be public, where the answers can also benefit others. If you prefer not to use either of these forums, you may contact me directly via email (ek.temple@gmail.com).
+For questions about Glimmr, please consider posting to either the rec.arts.int-fiction newsgroup or at the infiction forum (https://www.intfiction.org/forum/). This allows questions to be public, where the answers can also benefit others. If you prefer not to use either of these forums, you may contact me directly via email (ek.temple@gmail.com).
 
 Chapter: Change Log
 

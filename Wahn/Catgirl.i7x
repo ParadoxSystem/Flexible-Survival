@@ -43,11 +43,11 @@ to say Catgirl_Loses:
 	say "     ([link]N[as]n[end link]) - No.";
 	if player consents:
 		LineBreak;
-		if cunts of player > 0 and cocks of player < 1: [female]
+		if player is female and cocks of player < 1: [female]
 			say "     Not having a cock to fulfill the catgirl's needs, you nevertheless step up and stroke her soft fur, softly pushing her over to sprawl on her back. Sitting down beside her, you run your hands over her breasts and then start to fondle her pussy. As she purrs and mrowls lustfully under your massaging fingers, your own libido awakens. You quickly remove your clothes and play with your own female parts in tandem with the catgirl's.";
 			say "     Her yowls and moans get louder and louder, and before too much longer, the catgirl orgasms from your stimulating fingers. With her in the throes of lust, female juices running down into her fur, you focus more on your own pussy, rubbing your fingers over its sensitive lips. Then you get another idea and softly take hold of the feline's tail, rubbing it against your pussy. With its soft length rubbing your private parts, you soon join the catgirl in her bliss.";
 			say "     Breathing deeply, you hold on to the catgirl for a while, stroking her fur as you come down from your high. She proves her amazing flexibility by not only licking up any female juices that had flowed out of her pussy, but cleaning up the rest of her fur as well. Watching her bend and stretch has an invigorating effect on you, and you're almost ready for another go when the catgirl finishes and dashes off. Pretty flighty, these hot felines - [if CatgirlFucked > 3]though you don't have any cause to complain, really - you already have Fiona hanging out near the library to have fun with, so having another street-cat run off on you isn't so bad.[else]too bad, since having one all to yourself would be awesome. For now, it looks like you'll have to hunt down either her or another one of the street-cats if you want another round.[end if]";
-		else if cocks of player > 0: [male + herm]
+		else if player is male: [male + herm]
 			say "     Who could resist such a nice invitation? Quickly throwing off your clothes, you take hold of your already half-hard cock and kneel behind the catgirl. Her fur feels amazingly soft against your shaft as you rub it over the inside of her legs, before bringing it to her moist opening. The feline girl gives a lust-filled yowl as you plunge in deep, burying your manhood into her in one quick thrust.";
 			say "     It feels great to reap the pleasure you earned by defeating her, the now willing catgirl gripping your cock tightly with her inner muscles as you fuck her. The sexy little feline is deep in the grip of heat, using her flexible body in any way she can to get you to cum inside her. Before long, her efforts bear fruit as the urgent need to spend your load rises in your balls. With one last deep thrust, you bottom out within her, shooting spurt after spurt of seed directly into her womb.";
 			say "     Breathing deeply, you hold on to the catgirl for a while, stroking her soft fur until your shaft softens and slips from her body. She proves her amazing flexibility by not only licking up any cum that had flowed out of her pussy, but cleaning up the rest of her fur as well. Watching her bend and stretch has an invigorating effect on your maleness, and you're almost ready for another go when the catgirl finishes her cleaning and dashes off. Pretty flighty, these hot felines - [if CatgirlFucked > 3]though you don't have any cause to complain, really - you already have Fiona hanging out near the library to have fun with, so having another street-cat run off on you isn't so bad.[else]too bad, since having one all to yourself would be awesome. For now, it looks like you'll have to hunt down either her or another one of the street-cats if you want another round.[end if]";
@@ -58,18 +58,18 @@ to say Catgirl_Loses:
 		if CatgirlFucked < 3:
 			increase CatgirlFucked by 1;
 	else:
-		say "     Shaking your head at the crazy 'come-hither... but I'm gonna attack you when you try' mating behaviour of this feline woman, you quickly run away, dashing down the street before the catgirl can realize that you're not actually gonna have sex with her.";
+		say "     Shaking your head at the crazy 'come-hither... but I'm gonna attack you when you try' mating behavior of this feline woman, you quickly run away, dashing down the street before the catgirl can realize that you're not actually gonna have sex with her.";
 
 to say Catgirl_Desc:
 	setmongender 4; [female]
 	say "     A slender black-furred female comes out of an alley a short distance ahead from you, meowing as she comes closer to have a look at you. She's a mixture between human and cat, having short fur covering her humanoid body, pointy ears, typical cat's eyes and a long tail. She walks with seductive grace on two digitigrade paws.";
 	say "     After a moment of studying you from a distance, it seems she comes to a decision and starts to give you a bit of a show. With flowing movements, she runs her hands over her own body, stroking over her own breasts and flirting her tail at you. Then she demonstratively bends over, flashing you her moist and ready pussy.";
-	say "     You find yourself almost hypnotized by her flowing movements and seductive demeanor and take a step closer before you can stop yourself. But as you do so, she hisses and bares her claws, though she is still showing off her body. Looks like she's in heat and wants [if cocks of player > 0]to be mated - but only by a partner who proves his strength and virility. [else]someone to soothe her desires - but nevertheless only a person who proves their worth first. [end if]And she really wants to know if you qualify, it seems - jumping you a moment later with outstretched claws.";
+	say "     You find yourself almost hypnotized by her flowing movements and seductive demeanor and take a step closer before you can stop yourself. But as you do so, she hisses and bares her claws, though she is still showing off her body. Looks like she's in heat and wants [if player is male]to be mated - but only by a partner who proves his strength and virility. [else]someone to soothe her desires - but nevertheless only a person who proves their worth first. [end if]And she really wants to know if you qualify, it seems - jumping you a moment later with outstretched claws.";
 
 Section 2 - Monster Insertion
 
 Table of random critters (continued)
-name	attack	defeated	victory	desc	face	body	skin	tail	cock	face change	body change	skin change	ass change	cock change	str	dex	sta	per	int	cha	sex	hp	lev	wdam	area	cocks	cock length	cock width	breasts	breast size	male breast size	cunts	cunt length	cunt width	libido	loot	lootchance	scale (number)	body descriptor (text)	type (text)	magic (truth state)	resbypass (truth state)	non-infectious (truth state)	nocturnal (truth state)	altcombat (text)
+name	attack	defeated	victory	desc	face	body	skin	tail	cock	face change	body change	skin change	ass change	cock change	str	dex	sta	per	int	cha	sex	HP	lev	wdam	area	cocks	cock length	cock width	breasts	breast size	male breast size	cunts	cunt length	cunt width	libido	loot	lootchance	scale (number)	body descriptor (text)	type (text)	magic (truth state)	resbypass (truth state)	non-infectious (truth state)	nocturnal (truth state)	altcombat (text)
 --	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--	--;
 
 When Play begins:
@@ -82,7 +82,7 @@ When Play begins:
 	now face entry is "a mixture of cat and human, with rather sharp features and a mouth full of pointy teeth. Vertically slitted eyes and large cats ears relatively high on your head complete the picture";
 	now body entry is "very slender and sleek, built for speed and agility. Your hands are mostly human, although equipped with sharp claws, while your long legs end in more paw-like digitigrade feet";
 	now skin entry is "black, soft-furred";
-	now tail entry is "You have a long mobile tail over the tight buns of your behind. It's pretty useful for helping you hold your balance in any situation.";
+	now tail entry is "You have a long, mobile tail over the tight buns of your behind. It's pretty useful for helping you hold your balance in any situation.";
 	now cock entry is "feline, spined";
 	now face change entry is "it reshapes itself, giving you sharp features and a pretty pointy chin. You feel your mouth filling with a predator's sharp teeth as your ears grow and migrate further up your head";
 	now body change entry is "you fall to the ground, your chest and limbs reforming into a slender, sleek new shape. Your hands acquire sharp claws, while your feet take the shape of digitigrade paws";
@@ -96,16 +96,16 @@ When Play begins:
 	now int entry is 12;
 	now cha entry is 12;
 	now sex entry is "Female";          [ Defines which sex the infection will try and make you. current options are 'Male' 'Female' 'Both']
-	now hp entry is 60;                 [ How many HP has the monster got? ]
-	now lev entry is 8;                 [ Level of the Monster, you get this much hp if you win, or this much hp halved if you loose ]
+	now HP entry is 60;                 [ How many HP has the monster got? ]
+	now lev entry is 8;                 [ Level of the Monster, you get this much HP if you win, or this much HP halved if you loose ]
 	now wdam entry is 8;                [ Amount of Damage monster Does when attacking.]
-	now area entry is "Warehouse";      [ Current options are 'Outside' and 'Mall'  Case sensitive]
+	now area entry is "Warehouse";      [ Current options are 'Outside' and 'Mall'. Case sensitive]
 	now cocks entry is 0;               [ How many cocks will the infection try and cause if sex is 'Male' or 'Both']
 	now cock length entry is 0;         [ Length infection will make cock grow to if cocks]
 	now cock width entry is 0;          [ Size of balls ]
 	now breasts entry is 2;             [ Number of Breasts infection will give you. ]
 	now breast size entry is 2;         [ Size of breasts infection will try to attain ]
-	now male breast size entry is 0;    [ Breast size for if Sex="Male", usually zero. ]
+	now male breast size entry is 0; [ Breast size for if Sex="Male", usually zero. ]
 	now cunts entry is 1;               [ if sex = "Female or both", indicates the number of female sexes infection will grant you.]
 	now cunt length entry is 8;         [ Length of female sex infection will attempt to give you. ]
 	now cunt width entry is 6;          [ Width of female sex infection will try and give you ]
@@ -137,13 +137,13 @@ instead of navigating Grey Abbey Library while (CatgirlFucked > 3 and a random c
 		say "     DEBUG: FIONA REPEAT WALKIN [line break]";
 	say "[FionaRepeatMeeting]";
 
-instead of going outside from Bunker while (CatgirlFucked is 3):
+instead of going up from Bunker while (CatgirlFucked is 3):
 	move player to Grey Abbey Library;
 	if debugactive is 1:
 		say "     DEBUG: FIONA FIRST WALKIN [line break]";
 	say "[FionaFirstMeeting]";
 
-instead of going outside from Bunker while (CatgirlFucked > 3 and a random chance of 1 in 4 succeeds and (LastCatgirlFuck - Turns) > 10):
+instead of going up from Bunker while (CatgirlFucked > 3 and a random chance of 1 in 4 succeeds and (LastCatgirlFuck - Turns) > 10):
 	move player to Grey Abbey Library;
 	if debugactive is 1:
 		say "     DEBUG: FIONA REPEAT WALKIN [line break]";
@@ -160,11 +160,11 @@ to say FionaFirstMeeting:
 	if player consents:
 		LineBreak;
 		say "     Coming up to the sofa, you pet the catgirl, resulting in her rubbing her head against you and purring. As your hands move to set down your gear on the floor and start undoing the fastenings of your clothing, that purr intensifies even more and finally leads over into a lust-filled mrowl. While you strip, the catgirl drops on all fours and flirts her tail at you. She lowers her chest and spreads her legs a bit, presenting you with a pussy just ready to be mounted.";
-		if cunts of player > 0 and cocks of player < 1: [female]
+		if player is female and cocks of player < 1: [female]
 			say "     Not having a cock to fulfill the catgirl's needs, you nevertheless step up and stroke her soft fur, softly pushing her over to sprawl on her back. Sitting down beside her, you run your hands over her breasts and then start to fondle her pussy. As she purrs and mrowls under your massaging fingers, your own libido awakens, leading you to play with your own female parts in tandem with the catgirl's. Her yowls and moans get louder and louder, and before too much longer, the catgirl orgasms from your stimulating fingers. With her in the throes of lust, female juices running down into her fur, you focus more on your own pussy, rubbing your fingers over its sensitive lips. Then you get another idea and softly take hold of the feline's tail, rubbing it against your pussy. With its soft length rubbing your private parts, you soon join the catgirl in her bliss.";
 			WaitLineBreak;
 			say "     Breathing deeply, you hold on to the catgirl for a while, stroking her fur as you come down from your orgasmic high. She stays with you like that some time, enjoying your close touch, then glides out of your grasp in a fluid move and starts to clean herself up. Proving her amazing flexibility, she manages to bend far enough to even lick up the female juices that had flowed out of her pussy, and cleaning the every other part of her fur as well. Watching the sexy kitty bend and stretch has an invigorating effect on you, and you're almost ready for another go when the catgirl finishes and dashes off, streaking away between the bookshelves to vanish through whatever door or window she used to sneak in.";
-		else if cocks of player > 0: [male + herm]
+		else if player is male: [male + herm]
 			say "     Who could resist such a nice invitation? Taking hold of your already half-hard cock, you kneel behind the catgirl. Her fur feels amazingly soft against your shaft as you rub it over the inside of her legs, before bringing it to her moist opening. The feline girl gives a lust-filled yowl as you plunge in deep, burying your manhood into her in one quick thrust. It feels great to reap the pleasures you earned by proving a worthy mate, the eager and willing catgirl now gripping your cock tightly with her inner muscles as you fuck her. Your sexy little feline is deep in the grip of heat, using her flexible body in any way she can to get you to cum inside her. Before long, her efforts bear fruit as the urgent need to spend your load rises in your balls. With one last deep thrust, you bottom out within her, shooting spurt after spurt of seed directly into her womb.";
 			WaitLineBreak;
 			say "     Breathing deeply, you hold on to the catgirl for a while, stroking her fur as you come down from your orgasmic high. She stays with you like that some time, enjoying your close touch, then glides out of your grasp in a fluid move and starts to clean herself up. Proving her amazing flexibility, she manages to bend far enough to even lick up the cum that had flowed out of her pussy, and cleaning the every other part of her fur as well. Watching the sexy kitty bend and stretch has an invigorating effect on you, and you're almost ready for another go when the catgirl finishes and dashes off, streaking away between the bookshelves to vanish through whatever door or window she used to sneak in.";
@@ -191,11 +191,11 @@ to say FionaRepeatMeeting:
 	if player consents:
 		LineBreak;
 		say "     Coming up to the sofa, you pet the catgirl, resulting in her rubbing her head against you and purring. [if CatgirlFucked is 4]Then you tell her that you've decided to call her Fiona, to which she turns her head a bit as if in thought, then gives an accepting meow and resumes her purring. [end if]As your hands move to set down your gear on the floor and start undoing the fastenings of your clothing, that purr intensifies even more and finally leads over into a lust-filled mrowl. While you strip, Fiona drops on all fours and flirts her tail at you. She lowers her chest and spreads her legs a bit, presenting you with a pussy just ready to be mounted.";
-		if cunts of player > 0 and cocks of player < 1: [female]
+		if player is female and cocks of player < 1: [female]
 			say "     Not having a cock to fulfill the catgirl's needs, you nevertheless step up and stroke her soft fur, softly pushing her over to sprawl on her back. Sitting down beside her, you run your hands over her breasts and then start to fondle her pussy. As she purrs and mrowls under your massaging fingers, your own libido awakens, leading you to play with your own female parts in tandem with the catgirl's. Her yowls and moans get louder and louder, and before too much longer, the catgirl orgasms from your stimulating fingers. With her in the throes of lust, female juices running down into her fur, you focus more on your own pussy, rubbing your fingers over its sensitive lips. Then you get another idea and softly take hold of the feline's tail, rubbing it against your pussy. With its soft length rubbing your private parts, you soon join the catgirl in her bliss.";
 			WaitLineBreak;
 			say "     Breathing deeply, you hold on to Fiona for a while, stroking her fur as you come down from your orgasmic high. She stays with you like that some time, enjoying your close touch, then glides out of your grasp in a fluid move and starts to clean herself up. Proving her amazing flexibility, she manages to bend far enough to even lick up the female juices dripping out of her pussy, as well as being able to clean every other part of her fur as well. Watching the sexy kitty bend and stretch has an invigorating effect on you, and you're almost ready for another go when the catgirl finishes and dashes off, streaking away between the bookshelves to vanish through whatever door or window she used to sneak in.";
-		else if cocks of player > 0: [male + herm]
+		else if player is male: [male + herm]
 			say "     Who could resist such a nice invitation? Taking hold of your already half-hard cock, you kneel behind the catgirl. Her fur feels amazingly soft against your shaft as you rub it over the inside of her legs, before bringing it to her moist opening. The feline girl gives a lust-filled yowl as you plunge in deep, burying your manhood into her in one quick thrust. It feels great to reap the pleasures you earned by proving a worthy mate, the eager and willing catgirl now gripping your cock tightly with her inner muscles as you fuck her. Your sexy little feline is deep in the grip of heat, using her flexible body in any way she can to get you to cum inside her. Before long, her efforts bear fruit as the urgent need to spend your load rises in your balls. With one last deep thrust, you bottom out within her, shooting spurt after spurt of seed directly into her womb.";
 			WaitLineBreak;
 			say "     Breathing deeply, you hold on to Fiona for a while, stroking her fur as you come down from your orgasmic high. She stays with you like that some time, enjoying your close touch, then glides out of your grasp in a fluid move and starts to clean herself up. Proving her amazing flexibility, she manages to bend far enough to even lick up the cum dripping out of her pussy, as well as being able to clean every other part of her fur as well. Watching the sexy kitty bend and stretch has an invigorating effect on you, and you're almost ready for another go when the catgirl finishes and dashes off, streaking away between the bookshelves to vanish through whatever door or window she used to sneak in.";
@@ -210,7 +210,7 @@ to say FionaRepeatMeeting:
 	if CatgirlFucked is 4:
 		now CatgirlFucked is 5;
 
-instead of going outside from Bunker while (CatgirlFucked > 3 and Fang is in Grey Abbey Library and a random chance of 1 in 4 succeeds and (LastCatgirlFuck - Turns) > 10):
+instead of going up from Bunker while (CatgirlFucked > 3 and Fang is in Grey Abbey Library and a random chance of 1 in 4 succeeds and (LastCatgirlFuck - Turns) > 10):
 	move player to Grey Abbey Library;
 	if debugactive is 1:
 		say "     DEBUG: FIONA FANG WALKIN [line break]";
@@ -249,13 +249,13 @@ to say FionaFangSex:
 			say "     Keeping your distance from the area the sounds are coming from, you see Fiona streak out from between the bookshelves a moment later, tail all bushy and thick. She dashes down between two other rows of shelves, closely followed by Fang. A moment later, you fan hear the chase come to a sudden end, followed by a low growl and then a lust-filled mrowl. You do your best to filter out the sounds of their animalistic mating after that...";
 		now LastCatgirlFuck is turns;
 
-instead of going outside from Bunker while (CatgirlFucked > 3 and FionaCarlStatus is 0 and Carl is in Grey Abbey 2F and (LastCatgirlFuck - Turns) > 10 and hp of Carl is 10):
+instead of going up from Bunker while (CatgirlFucked > 3 and FionaCarlStatus is 0 and Carl is in Grey Abbey 2F and (LastCatgirlFuck - Turns) > 10 and HP of Carl is 10):
 	move player to Grey Abbey Library;
 	if debugactive is 1:
 		say "     DEBUG: FIONA CARL WALKIN [line break]";
 	say "[FionaCarlMeet]";
 
-instead of navigating Grey Abbey Library while (CatgirlFucked > 3 and FionaCarlStatus is 0 and Carl is in Grey Abbey 2F and (LastCatgirlFuck - Turns) > 10 and hp of Carl is 10):
+instead of navigating Grey Abbey Library while (CatgirlFucked > 3 and FionaCarlStatus is 0 and Carl is in Grey Abbey 2F and (LastCatgirlFuck - Turns) > 10 and HP of Carl is 10):
 	say "[NavCheck Grey Abbey Library]";
 	if NavCheckReturn is false, stop the action;
 	move player to Grey Abbey Library;
@@ -298,13 +298,13 @@ to say FionaCarlMeet:
 				now FionaCarlStatus is 1; [they fucked, player didn't watch]
 		now LastCatgirlFuck is turns;
 
-instead of going outside from Bunker while (CatgirlFucked > 3 and FionaCarlStatus > 0 and FionaCarlStatus < 100 and Carl is in Grey Abbey 2F and (LastCatgirlFuck - Turns) > 10 and hp of Carl is 10 and a random chance of 1 in 4 succeeds):
+instead of going up from Bunker while (CatgirlFucked > 3 and FionaCarlStatus > 0 and FionaCarlStatus < 100 and Carl is in Grey Abbey 2F and (LastCatgirlFuck - Turns) > 10 and HP of Carl is 10 and a random chance of 1 in 4 succeeds):
 	move player to Grey Abbey Library;
 	if debugactive is 1:
 		say "     DEBUG: FIONA CARL REPEAT WALKIN [line break]";
 	say "[FionaCarlRepeatFuck]";
 
-instead of navigating Grey Abbey Library while (CatgirlFucked > 3 and FionaCarlStatus > 0 and FionaCarlStatus < 100 and Carl is in Grey Abbey 2F and (LastCatgirlFuck - Turns) > 10 and hp of Carl is 10 and a random chance of 1 in 4 succeeds):
+instead of navigating Grey Abbey Library while (CatgirlFucked > 3 and FionaCarlStatus > 0 and FionaCarlStatus < 100 and Carl is in Grey Abbey 2F and (LastCatgirlFuck - Turns) > 10 and HP of Carl is 10 and a random chance of 1 in 4 succeeds):
 	say "[NavCheck Grey Abbey Library]";
 	if NavCheckReturn is false, stop the action;
 	move player to Grey Abbey Library;
@@ -335,8 +335,8 @@ to say FionaCarlRepeatFuck:
 Section 4 - Endings
 
 when play ends:
-	if bodyname of player is "Catgirl" and cunts of player > 0:
-		if humanity of player is less than 10: [succumbed]
+	if bodyname of player is "Catgirl" and player is female:
+		if humanity of player < 10: [succumbed]
 			say "Before long, your instincts take over, with your human life only a fading memory. Driven by powerful urges to be bred by any strong male, no matter what shape, you roam the streets of the city and flirt your sexy body in front of those you meet.";
 			if "Sterile" is not listed in feats of player: [F-BREEDABLE]
 				say "When the military finally moves in, a scouting soldier finds you in a fight with another potential mate and 'saves' you, driving off the creature with a few shots in the air. As worked up as you are, you immediately rub up against him and soon have the human's cock balls deep inside you. Several more matings follow as he escorts you out of the city, and before you even arrive at the holding facility, your belly starts to bulge with the fruit of your soldier's fertile seed. The man smuggles you past the checkpoints and brings you home with him as his private sex-pet, very well taken care of and fucked daily. You bear him several litters of kittens, many of whom go to his buddies who helped smuggle you out.";

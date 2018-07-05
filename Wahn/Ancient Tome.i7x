@@ -12,6 +12,7 @@ Version 1 of Ancient Tome by Wahn begins here.
 [  22: player told Eric he doesn't have the book                                       ]
 [  23: player told Eric the truth about him being tentacle fucked                      ]
 [  24: player told Eric he doesn't have the book (after tentacle fucking)              ]
+[  96: player gave Eric the book back after he got tentacle-fucked                     ]
 [  97: player gave Eric the book back after he got almost tentacle-fucked              ]
 [  98: player took the book after Eric was tentacle fucked (unknown to the player)     ]
 [  99: player took the book after Eric had a read                                      ]
@@ -21,7 +22,12 @@ Version 1 of Ancient Tome by Wahn begins here.
 TomeFound is a number that varies.
 lastTomeInteraction is a number that varies.
 
-instead of navigating Grey Abbey Library while (Eric is in Bunker and hp of Eric > 9 and hp of Eric < 99 and TomeFound is 0 and a random chance of 1 in 2 succeeds):
+An everyturn rule: [item cleanup]
+	if carried of ancient tome > 1:
+		say "     You feel movement in your backpack and pull it off, checking over what might have happened. Strange, didn't you have more than one ancient tome? Oh well, one is plenty anyways...";
+		now carried of ancient tome is 1;
+
+instead of navigating Grey Abbey Library while (Eric is in Bunker and HP of Eric > 9 and HP of Eric < 99 and TomeFound is 0 and a random chance of 1 in 2 succeeds):
 	say "[NavCheck Grey Abbey Library]";
 	if NavCheckReturn is false, stop the action;
 	move player to Grey Abbey Library;
@@ -36,8 +42,12 @@ instead of navigating Grey Abbey Library while (Eric is in Bunker and hp of Eric
 	if player consents: [take it]
 		LineBreak;
 		say "     Clearing your throat, you ask Eric to hand you the book - twice actually, as he doesn't react the first time and just keeps staring at the cover. Only when you repeat yourself does he look up, blinking a few times before focusing on you. With a shrug, he holds out the book and you quickly pack it away into your backpack.";
+		LineBreak;
+		say "[bold type]You gain an ancient tome![roman type][line break]";
 		increase carried of ancient tome by 1;
-		say "(You gain an ancient tome.)";
+		if carried of ancient tome > 1:
+			say "     You feel movement in your backpack and pull it off, checking over what might have happened. Strange, didn't you have more than one of these books? Oh well, one is plenty anyways...";
+			now carried of ancient tome is 1;
 		now TomeFound is 100; [player took the book right at the start]
 		now lastTomeInteraction is turns;
 	else: [let Eric have the book]
@@ -46,8 +56,7 @@ instead of navigating Grey Abbey Library while (Eric is in Bunker and hp of Eric
 		now TomeFound is 1; [Eric got the book]
 		now lastTomeInteraction is turns;
 
-instead of going inside from Grey Abbey Library while (Eric is in Bunker and hp of Eric > 9 and hp of Eric < 99 and TomeFound is 1 and lastTomeInteraction - turns > 10 and a random chance of 1 in 2 succeeds):
-	move player to Bunker;
+after going down from Grey Abbey Library while (Eric is in Bunker and HP of Eric > 9 and HP of Eric < 99 and TomeFound is 1 and lastTomeInteraction - turns > 10 and a random chance of 1 in 2 succeeds):
 	if debugactive is 1:
 		say "     DEBUG: Eric reads the book - TomeFound: [TomeFound], lastTomeInteraction: [lastTomeInteraction], current turn: [turns][line break]";
 	say "     Walking down the multiple flights of stairs to the bunker under the library, you step through the doorway into the underground chamber. As let your gaze sweep over the room, you spot Eric, lying stretched out on his bed and reading - but not just any book but that old tome he found not long ago. Elbows braced on the mattress, his head is bent over the book and he seems to be studying with an intent gaze. Curious, you wander over to the college student and glance over his shoulder. The page he is looking at is filled with strange curving squiggles, following no script you can really recognize. Clearing your throat, you manage to draw Eric's attention away from the book after a few seconds and he looks up at you with a curious expression.";
@@ -59,8 +68,12 @@ instead of going inside from Grey Abbey Library while (Eric is in Bunker and hp 
 	if player consents: [take the book]
 		LineBreak;
 		say "     Clearing your throat, you ask Eric to hand you the book - and he doesn't react to that at all, almost as if he hadn't heard a word you said. After waiting a moment or two, you finally decide to just take it. Reaching down, you pull the book out from under Eric's nose, closing the cover with a thud and tugging the tome under your arm. 'Hey!' Eric reacts with a slight delay, almost as if he had been in a trance. 'I was reading that, give it back!' the red-headed college student complains, but you tell him in a friendly, but firm, tone that you'll have to check this thing out for yourself first. He reaches out in a bid to snatch the book back, but you keep it out of his reach. Finally, he sits up and gives a sigh, then adds, 'Fine. I'll get something else to read then.' With a somewhat sullen expression on his face, Eric walks off towards the stairwell.";
+		LineBreak;
+		say "[bold type]You gain an ancient tome![roman type][line break]";
 		increase carried of ancient tome by 1;
-		say "(You gain an ancient tome.)";
+		if carried of ancient tome > 1:
+			say "     You feel movement in your backpack and pull it off, checking over what might have happened. Strange, didn't you have more than one of these books? Oh well, one is plenty anyways...";
+			now carried of ancient tome is 1;
 		now TomeFound is 99; [player took the book after Eric had a read]
 		now lastTomeInteraction is turns;
 	else: [leave it]
@@ -69,11 +82,10 @@ instead of going inside from Grey Abbey Library while (Eric is in Bunker and hp 
 		now TomeFound is 2; [Eric is reading the book]
 		now lastTomeInteraction is turns;
 
-instead of going inside from Grey Abbey Library while (Eric is in Bunker and hp of Eric > 9 and hp of Eric < 20 and TomeFound is 2 and lastTomeInteraction - turns > 10 and a random chance of 1 in 2 succeeds):
-	move player to Bunker;
+after going down from Grey Abbey Library while (Eric is in Bunker and HP of Eric > 9 and HP of Eric < 20 and TomeFound is 2 and lastTomeInteraction - turns > 10 and a random chance of 1 in 2 succeeds):
 	if debugactive is 1:
 		say "     DEBUG: Eric gets tentacled - TomeFound: [TomeFound], lastTomeInteraction: [lastTomeInteraction], current turn: [turns][line break]";
-	say "     Walking down the multiple flights of stairs to the bunker under the library, you step through the doorway into the underground chamber. As let your gaze sweep over the room, you spot Eric, lying in his bed under a thin blanket. He is sleeping, yet from the looks of it it seems a bit fitful as he moves around, his head lolling back and forth slowly as he pants visibly.";
+	say "     Walking down the multiple flights of stairs to the bunker under the library, you step through the doorway into the underground chamber. As let your gaze sweep over the room, you spot Eric, lying in his bed under a thin blanket. He is sleeping, yet from the looks of it, it seems a bit fitful as he moves around, his head lolling back and forth slowly as he pants visibly.";
 	say "     [bold type]Maybe you should check on him...[roman type][line break]";
 	LineBreak;
 	say "     ([link]Y[as]y[end link]) - Walk over and wake him if he is having a nightmare or something.";
@@ -98,11 +110,15 @@ instead of going inside from Grey Abbey Library while (Eric is in Bunker and hp 
 			say "     The thing seems to wink at you, closing and opening in quick secession, then splurts out a last gob of off-white cum and sinks out of sight behind the bed. Maybe a message - but it's anyone's guess what that was supposed to mean. Crouching down, you look under the bed... and there's nothing there, just empty air. With a shrug, you turn your attention back to Eric - who is still out for the count, despite everything that has happened to him just now! The steady trickle of monster cum from between his legs has the potential to make a hell of a mess of the bed, so you quickly snatch up the t-shirt he took off before going to bed and position the bunched-up fabric under his crotch to soak up what it can. Snatching up another piece of usable fabric, you then start working on cleaning him up from all the other goop that came off the tentacles, and Eric's own sweat from being fucked.";
 			WaitLineBreak;
 			say "     It'll be better if he doesn't wake up all slimed up - since the college student slept through the whole situation, he otherwise would be in for quite a shock. You'll have to see what he will or will not remember when he wakes up. By the time you're done cleaning up everything that made his naked body wet and sticky, Eric's belly has gone down to normal once more, no longer showing the slight bulge all the cum gave it. The t-shirt between his legs is a soppy mess as you pull it away and do a final wipe over Eric's pussy with your other cum-rag. Well, that's about as good as this will get - from looking at him now, you couldn't tell he was fucked by a tentacle monster ten minutes ago. With a concerned look at the young guy's now peaceful face, you cover him with a blanket again and go pick up the tome. It clearly has something to do with all this. Better to confiscate it and keep it out of Eric's hands for now unless you want to see a repeat of this...";
-			if hp of Eric is 10: [virgin cboy]
-				now hp of Eric is 14; [tentacles took his virginity]
+			if HP of Eric is 10: [virgin cboy]
+				now HP of Eric is 14; [tentacles took his virginity]
 				now EricVirginityTaken is 7; [impregnated with tentacle spawn]
+			LineBreak;
+			say "[bold type]You gain an ancient tome![roman type][line break]";
 			increase carried of ancient tome by 1;
-			say "(You gain an ancient tome.)";
+			if carried of ancient tome > 1:
+				say "     You feel movement in your backpack and pull it off, checking over what might have happened. Strange, didn't you have more than one of these books? Oh well, one is plenty anyways...";
+				now carried of ancient tome is 1;
 			now TomeFound is 4; [Eric is was tentacle-fucked, player watched]
 		else: [stop it]
 			LineBreak;
@@ -126,16 +142,20 @@ instead of going inside from Grey Abbey Library while (Eric is in Bunker and hp 
 				LineBreak;
 				say "     You throw yourself on the ground and look under Eric's bed, coming face to... black mass with an azure blue slitted eye. The creature hisses and seems to recoil from actually being observed, then quickly disintegrates into a cloud of black dust that vanishes into nothingness in a few seconds. Phew, good thing that monsters under people's beds do not like to be looked at! You make doubly sure that it really is gone, halfway crawling under the bed yourself and groping around, then even checking under the bunched up blanket you wrenched off the bed. Relieved that you seem to be alone for the moment, you then stand up again and check on Eric.";
 				say "     He still is in a state of oddly deep sleep, not having woken up from anything that happened so far. You just hope that this will pass given enough time. As there is nothing much else you can do right now, you grab the t-shirt Eric took off before going to sleep and gently dab it at his crotch, wiping away the goop that the creature squirted on him. It could be the reason he is in that sleep-trance after all, and Eric would surely be freaked out if he woke up all slimed up. With a concerned look at his now peaceful face, you cover him with a blanket again and go pick up the tome. It clearly has something to do with all this and you should keep it out of Eric's hands for now.";
+			LineBreak;
+			say "[bold type]You gain an ancient tome![roman type][line break]";
 			increase carried of ancient tome by 1;
-			say "(You gain an ancient tome.)";
+			if carried of ancient tome > 1:
+				say "     You feel movement in your backpack and pull it off, checking over what might have happened. Strange, didn't you have more than one of these books? Oh well, one is plenty anyways...";
+				now carried of ancient tome is 1;
 			now TomeFound is 20; [player took the book after Eric was almost tentacle-fucked]
 		now lastTomeInteraction is turns;
 	else: [don't do anything]
 		LineBreak;
 		say "     With a shrug, you leave Eric in peace and turn to other things. When you glance over to him again some while later, he has indeed calmed down and is again sleeping peacefully.";
 		now TomeFound is 3; [Eric is was tentacle-fucked, player saw nothing]
-		if hp of Eric is 10: [virgin cboy]
-			now hp of Eric is 14; [tentacles took his virginity]
+		if HP of Eric is 10: [virgin cboy]
+			now HP of Eric is 14; [tentacles took his virginity]
 			now EricVirginityTaken is 7; [impregnated with tentacle spawn]
 		now lastTomeInteraction is turns;
 
@@ -148,11 +168,8 @@ name	desc	weight	object
 
 to say TomeUse:
 	LineBreak;
-	if cocks of player is 0 and cunts of player > 0:
-		say "     You open the old book and flip through a few pages. Sadly, it seems to be written in a squiggly script that you can make no heads or tails of, and the images in it are mildly disturbing, full of weird creatures and situations. A shiver runs down your spine as you close the book again.";
-	else:
-		say "[TomeExpansionUse]";
-		
+	say "[TomeExpansionUse]";
+
 to say TomeExpansionUse:
 	say "This appears to be not coded yet, so says Nuku/David.";
 
@@ -188,6 +205,5 @@ instead of trading the ancient tome when the current action involves the Eric:
 		now TomeFound is 1; [Eric got the book now]
 	else if TomeFound is 101: [Eric is afraid of the book and was offered it back before]
 		say "     You shouldn't tease Eric with the tome any further. He was genuinely afraid the last time. Confronting him with the book would just be cruel after that.";
-
 
 Ancient Tome ends here.

@@ -4,7 +4,7 @@ Version 3 of Gender Pronouns by Core Mechanics begins here.
 Section 1 - Blue Bishop's Variables and Routines
 
 ghis is text that varies. ghis is usually "their". [Gender text nodule, entails his/her/their]
-ghe is text that varies. ghe is usually "it".	[Gender text nodule, entails he/she/it]
+ghe is text that varies. ghe is usually "it". [Gender text nodule, entails he/she/it]
 ghim is text that varies. ghim is usually "it". [Gender text nodule, entails him/her/it]
 ghishers is text that varies. ghishers is usually "theirs". [Gender text nodule, entails his/hers/theirs]
 gchis is text that varies. ghis is usually "Their". [Capitalized Versions]
@@ -166,7 +166,7 @@ to say yfv:    [sticks y/ies on if single female - verb]
 
 [
 Example:
-say "Your cock[smn] smash[esmv] into the goblin's face.  Your juicy puss[yfn] then grind[sfv] against his pointy nose.";
+say "Your cock[smn] smash[esmv] into the goblin's face. Your juicy puss[yfn] then grind[sfv] against his pointy nose.";
 1 cock: Your cock smashes into the goblin's face...
 2+ cocks: Your cocks slam into the goblin's face...
 1 cunt: ...Your juicy pussy then grinds against his pointy nose.
@@ -502,11 +502,11 @@ to say himher:
 
 Section 6 - Starshard's Rules and Definitions
 
-A person has a text called SubjectPro. SubjectPro is usually "they". [Subject Pronoun, they/he/she]
-A person has a text called ObjectPro. ObjectPro is usually "them". [Object Pronoun, them/him/her]
-A person has a text called PosAdj. PosAdj is usually "their". [Possessive Adjective, their/his/her]
-A person has a text called PosPro. PosPro is usually "theirs". [Possessive Pronoun, theirs/his/hers]
-A person has a text called ReflexPro. ReflexPro is usually "themselves". [Reflexive Pronoun, themselves/himself/herself]
+A person has a text called SubjectPro. SubjectPro is usually "they". [Subject Pronoun, it/he/she]
+A person has a text called ObjectPro. ObjectPro is usually "them". [Object Pronoun, it/him/her]
+A person has a text called PosAdj. PosAdj is usually "their". [Possessive Adjective, its/his/her]
+A person has a text called PosPro. PosPro is usually "theirs". [Possessive Pronoun, its/his/hers]
+A person has a text called ReflexPro. ReflexPro is usually "themselves". [Reflexive Pronoun, itself/himself/herself]
 A person has a text called SubjectProCap. SubjectProCap is usually "They".
 A person has a text called ObjectProCap. ObjectProCap is usually "Them".
 A person has a text called PosAdjCap. PosAdjCap is usually "Their".
@@ -555,16 +555,16 @@ to SetHermPronouns for (x - a person):
 	now PronounSet of x is "Herm";
 
 To SetNeutralPronouns for (x - a person):
-	now SubjectPro of x is "they";
-	now ObjectPro of x is "them";
-	now PosAdj of x is "their";
-	now PosPro of x is "theirs";
-	now ReflexPro of x is "themselves";
-	now SubjectProCap of x is "They";
-	now ObjectProCap of x is "Them";
-	now PosAdjCap of x is "Their";
-	now PosProCap of x is "Theirs";
-	now ReflexProCap of x is "Themselves";
+	now SubjectPro of x is "it";
+	now ObjectPro of x is "it";
+	now PosAdj of x is "its";
+	now PosPro of x is "its";
+	now ReflexPro of x is "itself";
+	now SubjectProCap of x is "It";
+	now ObjectProCap of x is "It";
+	now PosAdjCap of x is "Its";
+	now PosProCap of x is "Its";
+	now ReflexProCap of x is "Itself";
 	now PronounSet of x is "Neutral";
 
 This is the SetPlayerPronouns rule:
@@ -578,7 +578,7 @@ This is the SetPlayerPronouns rule:
 		-- "Neutral":
 			SetNeutralPronouns for player;
 		-- "Auto":
-			if cocks of player > 0 and cunts of player > 0:
+			if player is herm:
 				if breast size of player > 0: [herm]
 					SetHermPronouns for player;
 				else: [male herm]
@@ -651,6 +651,42 @@ to say Master:
 		say "Master";
 	else:
 		say "Mistress";
+
+to say boygirl:
+	if PronounSet of player is "Male" or PronounSet of player is "Neutral":
+		say "boy";
+	else:
+		say "girl";
+
+to say guygal:
+	if PronounSet of player is "Male" or PronounSet of player is "Neutral":
+		say "guy";
+	else:
+		say "gal";
+
+to say mister:
+	if PronounSet of player is "Male" or PronounSet of player is "Neutral":
+		say "mister";
+	else:
+		say "miss";
+
+to say Mister:
+	if PronounSet of player is "Male" or PronounSet of player is "Neutral":
+		say "Mister";
+	else:
+		say "Miss";
+
+to say Sir:
+	if PronounSet of player is "Male" or PronounSet of player is "Neutral":
+		say "Sir";
+	else:
+		say "Ma'am";
+
+to say sir:
+	if PronounSet of player is "Male" or PronounSet of player is "Neutral":
+		say "sir";
+	else:
+		say "ma'am";
 
 [Being verbs]
 
